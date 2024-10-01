@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 // +++++++++++++++ First and last occurence of the element in array otherwise return -1 +++++++++++++++++++++++++++++++++++
 // easy level
 // int first_occ(int arr[], int size, int key){
@@ -88,7 +87,6 @@ using namespace std;
 //     cout << "peak value in the index is: " <<  peak_index(arr, size);
 // }
 
-
 // +++++++++++++++++++++++++++++++ Find the Pivot (min or max value in rotated sorted array) +++++++++++
 
 // int pivot(int arr[], int size ){
@@ -113,3 +111,79 @@ using namespace std;
 //     int size = 5;
 //     cout << "Pivot is at the index of: " << pivot(arr, size);
 // }
+
+// ++++++++++++++++++++++++++++++ find element in sorted rotated array ++++++++++++++++++++++++++++++++++
+
+// find element
+int binarySearch(int arr[], int size, int key, int s, int e)
+{
+    int mid = s + (e - s) / 2;
+    while (s <= e)
+    {
+        if (key == arr[mid])
+        {
+            return mid;
+        }
+        else if (key < arr[mid])
+        {
+            e = mid - 1;
+        }
+        else
+        {
+            s = mid + 1;
+        }
+        mid = s + (e - s) / 2;
+    }
+    return -1;
+}
+
+// find pivot
+int getPivot(int arr[], int size, int key)
+{
+    int s = 0;
+    int e = size - 1;
+    int mid = s + (e - s) / 2;
+
+    while (s < e)
+    {
+        if (arr[mid] > arr[0])
+        {
+            s = mid + 1;
+        }
+        else
+        {
+            e = mid;
+        }
+        mid = s + (e - s) / 2;
+    }
+  
+    return s;
+}
+
+// function for execution
+int getElement(int arr[], int size, int key)
+{
+    int pivot = getPivot(arr, size, key);
+    if (arr[pivot] <= key && key <= arr[size - 1])
+    {
+        return binarySearch(arr, size, key, pivot, size - 1); // go to 2nd sorted part.
+    }
+    else
+    {
+        return binarySearch(arr, size, key, 0, pivot - 1); // else go to 1st sorted part.
+    }
+}
+
+int main()
+{
+    int arr[7] = {13, 17, 19, 1, 5, 8, 9};
+    int size = 7;
+    int key = 17;
+    int result = getElement(arr, size, key);
+    if(result != -1){
+        cout << "The element is present at index of: " << result;
+    }
+    else{
+        cout << "Element is not present in array.";
+    }
+}
