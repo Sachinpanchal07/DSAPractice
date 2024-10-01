@@ -115,75 +115,104 @@ using namespace std;
 // ++++++++++++++++++++++++++++++ find element in sorted rotated array ++++++++++++++++++++++++++++++++++
 
 // find element
-int binarySearch(int arr[], int size, int key, int s, int e)
-{
-    int mid = s + (e - s) / 2;
-    while (s <= e)
-    {
-        if (key == arr[mid])
-        {
-            return mid;
-        }
-        else if (key < arr[mid])
-        {
-            e = mid - 1;
-        }
-        else
-        {
-            s = mid + 1;
-        }
-        mid = s + (e - s) / 2;
-    }
-    return -1;
-}
+// int binarySearch(int arr[], int size, int key, int s, int e)
+// {
+//     int mid = s + (e - s) / 2;
+//     while (s <= e)
+//     {
+//         if (key == arr[mid])
+//         {
+//             return mid;
+//         }
+//         else if (key < arr[mid])
+//         {
+//             e = mid - 1;
+//         }
+//         else
+//         {
+//             s = mid + 1;
+//         }
+//         mid = s + (e - s) / 2;
+//     }
+//     return -1;
+// }
 
-// find pivot
-int getPivot(int arr[], int size, int key)
-{
-    int s = 0;
-    int e = size - 1;
-    int mid = s + (e - s) / 2;
+// // find pivot
+// int getPivot(int arr[], int size, int key)
+// {
+//     int s = 0;
+//     int e = size - 1;
+//     int mid = s + (e - s) / 2;
 
-    while (s < e)
-    {
-        if (arr[mid] > arr[0])
-        {
-            s = mid + 1;
-        }
-        else
-        {
-            e = mid;
-        }
-        mid = s + (e - s) / 2;
-    }
+//     while (s < e)
+//     {
+//         if (arr[mid] > arr[0])
+//         {
+//             s = mid + 1;
+//         }
+//         else
+//         {
+//             e = mid;
+//         }
+//         mid = s + (e - s) / 2;
+//     }
   
-    return s;
-}
+//     return s;
+// }
 
-// function for execution
-int getElement(int arr[], int size, int key)
-{
-    int pivot = getPivot(arr, size, key);
-    if (arr[pivot] <= key && key <= arr[size - 1])
-    {
-        return binarySearch(arr, size, key, pivot, size - 1); // go to 2nd sorted part.
-    }
-    else
-    {
-        return binarySearch(arr, size, key, 0, pivot - 1); // else go to 1st sorted part.
-    }
-}
+// // function for execution
+// int getElement(int arr[], int size, int key)
+// {
+//     int pivot = getPivot(arr, size, key);
+//     if (arr[pivot] <= key && key <= arr[size - 1])
+//     {
+//         return binarySearch(arr, size, key, pivot, size - 1); // go to 2nd sorted part.
+//     }
+//     else
+//     {
+//         return binarySearch(arr, size, key, 0, pivot - 1); // else go to 1st sorted part.
+//     }
+// }
 
-int main()
-{
-    int arr[7] = {13, 17, 19, 1, 5, 8, 9};
-    int size = 7;
-    int key = 17;
-    int result = getElement(arr, size, key);
-    if(result != -1){
-        cout << "The element is present at index of: " << result;
-    }
-    else{
-        cout << "Element is not present in array.";
-    }
-}
+// int main()
+// {
+//     int arr[7] = {13, 17, 19, 1, 5, 8, 9};
+//     int size = 7;
+//     int key = 17;
+//     int result = getElement(arr, size, key);
+//     if(result != -1){
+//         cout << "The element is present at index of: " << result;
+//     }
+//     else{
+//         cout << "Element is not present in array.";
+//     }
+// }
+
+// +++++++++++++++++++++++++++++++++ sqrt using binary search ++++++++++++++++++++++++++++++++++++++
+
+// long long int binarySerach(int n){
+//     int s = 0;
+//     int e = n;
+//     long long int mid = s + (e-s)/2;
+//     long long int ans = 0;
+//     while(s <= e){
+//         long long int sq = mid * mid;
+//         if(sq == n){
+//             return mid;
+//         }
+//         else if(sq < n){
+//             ans = mid;
+//             s = mid + 1;
+//         }
+//         else{
+//             e = mid - 1;
+//         }
+//         mid = s + (e-s)/2;
+//     } 
+//     return ans;
+// }
+
+// int main(){
+//     int num = 36;
+//     cout << "The int sqrt of the number is :" << binarySerach(35);
+// }
