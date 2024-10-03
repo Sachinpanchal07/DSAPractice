@@ -217,9 +217,9 @@ using namespace std;
 //     cout << "The int sqrt of the number is :" << binarySerach(35);
 // }
 
-// ++++++++++++++++++++++++++++++++++++
+//  ++++++++++++++++++++++++++++++++++++ search insert position +++++++++++++++++++++++++++++++++
 
-// Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+// Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the      index where it would be if it were inserted in order.
 
 // int getElement(int arr[], int size, int key){
 //     int s = 0;
@@ -272,4 +272,26 @@ using namespace std;
 
 // }
 
+// +++++++++++++++++++++++++++++finding missing element+++++++++++++++++++++++
+
+// int findElement(int arr[],int size){
+//     int el_sum = 0;
+//     int arr_sum = 0;
+//     for(int i= 0; i<=size; i++){
+//         el_sum += i;
+//     }
+//     for(int i= 0; i<size; i++){
+//         arr_sum += arr[i];
+//     }
+
+//     return (el_sum - arr_sum);
+
+// }
+
+
+// int main(){
+//     int arr[9] = {9,6,4,2,3,5,7,0,1};
+//     int size = 9;
+//     cout << "The missing number is: " << findElement(arr, size);
+// }
 
