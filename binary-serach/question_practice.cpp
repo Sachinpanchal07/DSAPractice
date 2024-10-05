@@ -221,56 +221,56 @@ using namespace std;
 
 // Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the      index where it would be if it were inserted in order.
 
-// int getElement(int arr[], int size, int key){
-//     int s = 0;
-//     int e = size - 1;
-//     int mid = s + (e-s)/2;
+int getElement(int arr[], int size, int key){
+    int s = 0;
+    int e = size - 1;
+    int mid = s + (e-s)/2;
 
-//     while(s<=e){
-//         if (arr[mid] == key){
-//             return mid;
-//         }
-//         else if (key < arr[mid]){
-//             e = mid - 1;
-//         }
-//         else{
-//             s = mid + 1;
-//         }
-//         mid = s + (e-s)/2;
-//     }
-//     return -1;
-// }
+    while(s<=e){
+        if (arr[mid] == key){
+            return mid;
+        }
+        else if (key < arr[mid]){
+            e = mid - 1;
+        }
+        else{
+            s = mid + 1;
+        }
+        mid = s + (e-s)/2;
+    }
+    return -1;
+}
 
-// int getIndex(int arr[], int size, int key){
-//     int s = 0;
-//     int e = size - 1;
-//     int mid = s + (e-s)/2;
-//     while(s<=e){
-//         if(key < arr[mid]){
-//             e = mid - 1;
-//         }
-//         else{
-//             s = mid + 1;
-//         }
-//         mid = s + (e-s)/2;
-//     }
-//     return s;
-// }
+int getIndex(int arr[], int size, int key){
+    int s = 0;
+    int e = size - 1;
+    int mid = s + (e-s)/2;
+    while(s<=e){
+        if(key < arr[mid]){
+            e = mid - 1;
+        }
+        else{
+            s = mid + 1;
+        }
+        mid = s + (e-s)/2;
+    }
+    return s;
+}
 
-// int main(){
-//     int arr[4] = {1,3,5,6};
-//     int size = 4;
-//     int key = 2;
-//     int result = getElement(arr, size, key);
+int main(){
+    int arr[4] = {1,3,5,6};
+    int size = 4;
+    int key = 2;
+    int result = getElement(arr, size, key);
 
-//     if (result == -1){
-//         cout << "The element should be present at the index of: " << getIndex(arr, size, key);
-//     }
-//     else{
-//         cout << "The element is present at the index of: " << result;
-//     }
+    if (result == -1){
+        cout << "The element should be present at the index of: " << getIndex(arr, size, key);
+    }
+    else{
+        cout << "The element is present at the index of: " << result;
+    }
 
-// }
+}
 
 // +++++++++++++++++++++++++++++finding missing element+++++++++++++++++++++++
 
