@@ -274,24 +274,24 @@ using namespace std;
 
 // +++++++++++++++++++++++++++++finding missing element+++++++++++++++++++++++
 
-// int findElement(int arr[],int size){
-//     int el_sum = 0;
-//     int arr_sum = 0;
-//     for(int i= 0; i<=size; i++){
-//         el_sum += i;
-//     }
-//     for(int i= 0; i<size; i++){
-//         arr_sum += arr[i];
-//     }
+int findElement(int arr[],int size){
+    int el_sum = 0;
+    int arr_sum = 0;
+    for(int i= 0; i<=size; i++){
+        el_sum += i;
+    }
+    for(int i= 0; i<size; i++){
+        arr_sum += arr[i];
+    }
 
-//     return (el_sum - arr_sum);
+    return (el_sum - arr_sum);
 
-// }
+}
 
 
-// int main(){
-//     int arr[9] = {9,6,4,2,3,5,7,0,1};
-//     int size = 9;
-//     cout << "The missing number is: " << findElement(arr, size);
+int main(){
+    int arr[9] = {9,6,4,2,3,5,7,0,1};
+    int size = 9;
+    cout << "The missing number is: " << findElement(arr, size);
 // }
 
