@@ -56,64 +56,88 @@ using namespace std;
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++ constructor +++++++++++++++++++++++++++++++++++++++++++
 
-class Customer{
-    string name;
-    int balance;
-    int account_number;
+// class Customer{
+//     string name;
+//     int balance;
+//     int account_number;
     
-    // +++++++++++++++++ defatult construtor.+++++++++
+//     // +++++++++++++++++ defatult construtor.+++++++++
 
-     public:
+//      public:
+//     Customer(){
+//         name = "sachin";
+//         balance = 1000;
+//         account_number  = 123;
+//     }
+
+//     // ++++++++++++  parameterize constructor. +++++++++
+
+//     // Customer(string name, int balance, int account_number){
+//     //     this->name = name;
+//     //     this->balance = balance;
+//     //     this->account_number = account_number;
+//     // }
+
+//     // +++++++++++++++ constructor overriding. +++++++++++
+
+//     Customer(string name, int balance){
+//         this->name = name;
+//         this->balance = balance;
+//         account_number = 789; // default value
+//     }
+
+//     // ++++++++++++++++ inlilne constructor ++++++++++++++++++++
+
+//     Customer(string a, int b, int c): name(a),balance(b), account_number(c){
+//     }
+
+//     // ++++++++++++++ copy constructor ++++++++++++++++++++
+
+//     Customer(Customer &B){ // this '&' symbol is representing the passed my memory address of object.
+//         name = B.name;
+//         balance = B.balance;
+//         account_number = B.account_number;
+//     }
+
+//     void display(){
+//         cout << name << " " << balance << " " << account_number << endl;
+//     }
+// };
+
+// int main(){
+//     Customer A1;
+//     Customer A2("hardik", 2000, 456);
+//     Customer A3("parveen", 3000);
+//     Customer A4(A3); // copy constructor, copy A3 in A4.
+//     Customer A5;
+//     A5 = A3; //  copy constructor, copy A4 in A5, by diff method.
+
+//     A1.display();
+//     A2.display();
+//     A3.display();
+//     A5.display(); 
+// }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++ Destructor +++++++++++++++++++++++++++++++++++++++++++++
+
+class Customer {
+    string name;
+    int *balance;
+
+    public:
     Customer(){
         name = "sachin";
-        balance = 1000;
-        account_number  = 123;
+        balance = new int;
+        *balance = 10;
+        cout << "constructor is called" << endl;
     }
-
-    // ++++++++++++  parameterize constructor. +++++++++
-
-    // Customer(string name, int balance, int account_number){
-    //     this->name = name;
-    //     this->balance = balance;
-    //     this->account_number = account_number;
-    // }
-
-    // +++++++++++++++ constructor overriding. +++++++++++
-
-    Customer(string name, int balance){
-        this->name = name;
-        this->balance = balance;
-        account_number = 789; // default value
-    }
-
-    // ++++++++++++++++ inlilne constructor ++++++++++++++++++++
-
-    Customer(string a, int b, int c): name(a),balance(b), account_number(c){
-    }
-
-    // ++++++++++++++ copy constructor ++++++++++++++++++++
-
-    Customer(Customer &B){ // this '&' symbol is representing the passed my memory address of object.
-        name = B.name;
-        balance = B.balance;
-        account_number = B.account_number;
-    }
-
-    void display(){
-        cout << name << " " << balance << " " << account_number << endl;
+    
+    ~Customer(){
+        delete balance;
+        cout << "destructor is called" << endl;
     }
 };
 
 int main(){
     Customer A1;
-    Customer A2("hardik", 2000, 456);
-    Customer A3("parveen", 3000);
-    Customer A4(A3); // copy constructor, copy A3 in A4.
-    Customer A5;
-    A5 = A3; //  copy constructor, copy A4 in A5, by diff method.
-
-    A1.display();
-    A2.display();
-    A3.display();
-    A5.display(); 
 }
