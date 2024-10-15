@@ -173,7 +173,7 @@ int main(){
     Customer A1("sachin", 1000);
     Customer A2("hardik", 2000);
     A1.display();
-    A2.display();
+    A2.display(); 
     Customer::accessStatic();  // only class can access these static function.
-    
+    // this code is also example of encapsulation and abstraction 
 }
