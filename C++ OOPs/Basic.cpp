@@ -93,7 +93,7 @@ using namespace std;
 
 //     // ++++++++++++++ copy constructor ++++++++++++++++++++
 
-//     Customer(Customer &B){ // this '&' symbol is representing the passed my memory address of object.
+//     Customer(Customer &B){ // this '&' symbol is representing the passed by memory address of object.
 //         name = B.name;
 //         balance = B.balance;
 //         account_number = B.account_number;
@@ -120,24 +120,55 @@ using namespace std;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++ Destructor +++++++++++++++++++++++++++++++++++++++++++++
 
-class Customer {
+// class Customer {
+//     string name;
+//     int *balance;
+
+//     public:
+//     Customer(){
+//         name = "sachin";
+//         balance = new int;
+//         *balance = 10;
+//         cout << "constructor is called" << endl;
+//     }
+    
+//     ~Customer(){
+//         delete balance;
+//         cout << "destructor is called" << endl;
+//     }
+// };
+
+// int main(){
+//     Customer A1;
+// }
+
+// +++++++++++++++++++++++++++++++++++++++ static data memeber +++++++++++++++++++++++++++++++++++++++
+
+class Customer{
     string name;
-    int *balance;
+    int balance;
+    static int total_customer;
 
     public:
-    Customer(){
-        name = "sachin";
-        balance = new int;
-        *balance = 10;
-        cout << "constructor is called" << endl;
+
+    Customer(string name, int balance){
+        this->name = name;
+        this->balance = balance;
+        total_customer++;
     }
-    
-    ~Customer(){
-        delete balance;
-        cout << "destructor is called" << endl;
+
+    void display(){
+        cout << name <<endl;
+        cout << balance << endl;
+        cout << total_customer << endl;
     }
 };
+int Customer::total_customer = 0;
 
 int main(){
-    Customer A1;
+    Customer A1("sachin", 1000);
+    Customer A2("hardik", 2000);
+    A1.display();
+    A2.display();
+    
 }
