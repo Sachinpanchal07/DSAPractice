@@ -147,7 +147,7 @@ using namespace std;
 class Customer{
     string name;
     int balance;
-    static int total_customer;
+    static int total_customer; // this is class attribute, we can also access this with only use of class without object
 
     public:
 
@@ -157,18 +157,23 @@ class Customer{
         total_customer++;
     }
 
+    static void accessStatic(){ // Can only access static data member
+        cout << total_customer << endl;
+    }
+
     void display(){
         cout << name <<endl;
         cout << balance << endl;
         cout << total_customer << endl;
     }
 };
-int Customer::total_customer = 0;
+int Customer::total_customer = 0; // always intialize here 
 
 int main(){
     Customer A1("sachin", 1000);
     Customer A2("hardik", 2000);
     A1.display();
     A2.display();
+    Customer::accessStatic();  // only class can access these static function.
     
 }
