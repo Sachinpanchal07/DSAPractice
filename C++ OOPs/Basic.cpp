@@ -240,35 +240,71 @@ using namespace std;
 
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-class Human{ 
-    private:
-    string religion, color;
+// class Human{ 
+//     private:
+//     string religion, color;
 
+//     protected:
+//     string name;
+//     int age;  
+// };
+
+// class Student: protected Human{
+//     protected:
+//     int roll_no, weight;
+
+//     public:
+//     Student(string name, int age, int roll_no, int weight){
+//         this->name = name;
+//         this->age =age;
+//         this->roll_no = roll_no;
+//         this->weight = weight;
+//     }
+
+//     public:
+//     void display(){
+//         cout << name << " age is " << age << " roll no. is " << roll_no << " weight is " << weight;
+//     }
+// };
+
+// int main(){
+//     Student S1("john", 33, 44, 100);
+//     S1.display();
+   
+// }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++ Single Inheritance +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+class Human{
     protected:
     string name;
-    int age;  
-};
-
-class Student: protected Human{
-    protected:
-    int roll_no, weight;
+    int age;
 
     public:
-    Student(string name, int age, int roll_no, int weight){
+    Human(string name, int age){
         this->name = name;
-        this->age =age;
-        this->roll_no = roll_no;
-        this->weight = weight;
+        this->age = age;
     }
 
-    public:
     void display(){
-        cout << name << " age is " << age << " roll no. is " << roll_no << " weight is " << weight;
+        cout << name << " " << age;
+    }
+};
+class Student: public Human{
+    int roll_no, fees;
+
+    public:
+    Student(string name, int age, int roll_no, int fees):Human(name, age){ // always first parnet class constructor will be called then child class construtor will be called.
+        this->roll_no = roll_no;
+        this->fees = fees;
+    }
+
+    void display(){
+        cout << name << " " << age << " " << roll_no<<" "<< fees;
     }
 };
 
 int main(){
-    Student S1("john", 33, 44, 100);
+    Student S1("jhon", 30, 94, 2000);
     S1.display();
-   
 }
