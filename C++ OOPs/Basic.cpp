@@ -142,38 +142,66 @@ using namespace std;
 //     Customer A1;
 // }
 
-// +++++++++++++++++++++++++++++++++++++++ static data memeber +++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++ static data memeber ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Customer{
-    string name;
-    int balance;
-    static int total_customer; // this is class attribute, we can also access this with only use of class without object
+// class Customer{
+//     string name;
+//     int balance;
+//     static int total_customer; // this is class attribute, we can also access this with only use of class without object
 
+//     public:
+
+//     Customer(string name, int balance){
+//         this->name = name;
+//         this->balance = balance;
+//         total_customer++;
+//     }
+
+//     static void accessStatic(){ // Can only access static data member
+//         cout << total_customer << endl;
+//     }
+
+//     void display(){
+//         cout << name <<endl;
+//         cout << balance << endl;
+//         cout << total_customer << endl;
+//     }
+// };
+// int Customer::total_customer = 0; // always intialize here 
+
+// int main(){
+//     Customer A1("sachin", 1000);
+//     Customer A2("hardik", 2000);
+//     A1.display();
+//     A2.display(); 
+//     // Customer::total_customer = 5; // we can do that but we have to make this variable public.
+//     Customer::accessStatic();  // only class can access these static function.
+//     // this code is also example of encapsulation and abstraction 
+// }
+
+//+++++++++++++++++++++++++++++++++++++++ Access modifier ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+class Human{
+    private:
+    int a;
+    protected:
+    int b;
     public:
-
-    Customer(string name, int balance){
-        this->name = name;
-        this->balance = balance;
-        total_customer++;
-    }
-
-    static void accessStatic(){ // Can only access static data member
-        cout << total_customer << endl;
-    }
+    int c;
 
     void display(){
-        cout << name <<endl;
-        cout << balance << endl;
-        cout << total_customer << endl;
+        a = 10;
+        b = 20; 
+        c = 30;
+        cout << a << b << c;
     }
+
 };
-int Customer::total_customer = 0; // always intialize here 
 
 int main(){
-    Customer A1("sachin", 1000);
-    Customer A2("hardik", 2000);
-    A1.display();
-    A2.display(); 
-    Customer::accessStatic();  // only class can access these static function.
-    // this code is also example of encapsulation and abstraction 
+    Human Obj1;
+    // Obj1.a = 10; // error
+    // Obj1.b = 10  // error
+    // Obj1.c = 10; // ok
+    Obj1.display();
 }
