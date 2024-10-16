@@ -275,36 +275,71 @@ using namespace std;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++ Single Inheritance +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Human{
+// class Human{
+//     protected:
+//     string name;
+//     int age;
+
+//     public:
+//     Human(string name, int age){
+//         this->name = name;
+//         this->age = age;
+//     }
+
+//     void display(){
+//         cout << name << " " << age;
+//     }
+// };
+// class Student: public Human{
+//     int roll_no, fees;
+
+//     public:
+//     Student(string name, int age, int roll_no, int fees):Human(name, age){ // always first parnet class constructor will be called then child class construtor will be called.
+//         this->roll_no = roll_no;
+//         this->fees = fees;
+//     }
+
+//     void display(){
+//         cout << name << " " << age << " " << roll_no<<" "<< fees;
+//     }
+// };
+
+// int main(){
+//     Student S1("jhon", 30, 94, 2000);
+//     S1.display();
+// }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++ multilevel Inheritance +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+class Person{
+
     protected:
     string name;
-    int age;
-
-    public:
-    Human(string name, int age){
-        this->name = name;
-        this->age = age;
-    }
-
-    void display(){
-        cout << name << " " << age;
-    }
 };
-class Student: public Human{
-    int roll_no, fees;
+class Employe: public Person{
+    protected:
+    int salary;
+};
+
+class Manager: public Employe{
+    protected:
+    string department;
 
     public:
-    Student(string name, int age, int roll_no, int fees):Human(name, age){ // always first parnet class constructor will be called then child class construtor will be called.
-        this->roll_no = roll_no;
-        this->fees = fees;
+    Manager(string name, int salary, string department){
+        this->name = name;
+        this->salary = salary;
+        this->department = department;
     }
 
     void display(){
-        cout << name << " " << age << " " << roll_no<<" "<< fees;
+        cout << "my name is " << name << " and my salary is " << salary<< " of department " << department;
     }
 };
 
 int main(){
-    Student S1("jhon", 30, 94, 2000);
-    S1.display();
+    Manager A1("sachin", 100000, "IT");
+    A1.display();
+    
 }
+
