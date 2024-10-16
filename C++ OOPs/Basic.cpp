@@ -311,35 +311,77 @@ using namespace std;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++ multilevel Inheritance +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Person{
+// class Person{
 
-    protected:
-    string name;
-};
-class Employe: public Person{
-    protected:
-    int salary;
-};
+//     protected:
+//     string name;
+// };
+// class Employe: public Person{
+//     protected:
+//     int salary;
+// };
 
-class Manager: public Employe{
-    protected:
-    string department;
+// class Manager: public Employe{
+//     protected:
+//     string department;
 
+//     public:
+//     Manager(string name, int salary, string department){
+//         this->name = name;
+//         this->salary = salary;
+//         this->department = department;
+//     }
+
+//     void display(){
+//         cout << "my name is " << name << " and my salary is " << salary<< " of department " << department;
+//     }
+// };
+
+// int main(){
+//     Manager A1("sachin", 100000, "IT");
+//     A1.display();
+    
+// }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++ multiple Inheritance +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+class Engineer{
     public:
-    Manager(string name, int salary, string department){
+    string specialization;
+
+    void work(){
+        cout << "I am an engineer"<< endl;
+    }
+};
+class Youtuber{
+    public:
+    int subscribers;
+    void sub_count(){
+        cout << "I have " << subscribers << " subscribers" << endl;
+    }
+};
+
+class Person: public Youtuber, public Engineer{ // firstly Youtuber constructor call then  then engineer  cons called.
+    public:
+    string name;
+    Person(string name, int subscribers, string specialization){
         this->name = name;
-        this->salary = salary;
-        this->department = department;
+        this->subscribers = subscribers;
+        this->specialization = specialization;
     }
 
     void display(){
-        cout << "my name is " << name << " and my salary is " << salary<< " of department " << department;
+        cout << "My name is " << name <<endl;
+        work();
+        sub_count();
     }
 };
 
 int main(){
-    Manager A1("sachin", 100000, "IT");
-    A1.display();
-    
+    Person P1("sachin", 100000, "Computer Science");
+    P1.display();
+    // constructor are called in order,
+    // Youtuber constructor
+    // Engineer constructor 
+    // Person cosntructor
 }
-
