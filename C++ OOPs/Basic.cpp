@@ -345,43 +345,90 @@ using namespace std;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++ multiple Inheritance +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Engineer{
-    public:
-    string specialization;
+// class Engineer{
+//     public:
+//     string specialization;
 
-    void work(){
-        cout << "I am an engineer"<< endl;
+//     void work(){
+//         cout << "I am an engineer"<< endl;
+//     }
+// };
+// class Youtuber{
+//     public:
+//     int subscribers;
+//     void sub_count(){
+//         cout << "I have " << subscribers << " subscribers" << endl;
+//     }
+// };
+
+// class Person: public Youtuber, public Engineer{ // firstly Youtuber constructor call then  then engineer  cons called.
+//     public:
+//     string name;
+//     Person(string name, int subscribers, string specialization){
+//         this->name = name;
+//         this->subscribers = subscribers;
+//         this->specialization = specialization;
+//     }
+
+//     void display(){
+//         cout << "My name is " << name <<endl;
+//         work();
+//         sub_count();
+//     }
+// };
+
+// int main(){
+//     Person P1("sachin", 100000, "Computer Science");
+//     P1.display();
+//     // constructor are called in order,
+//     // Youtuber constructor
+//     // Engineer constructor 
+//     // Person cosntructor
+// }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++ hybrid Inheritance +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+class Student{
+    public:
+    void stud(){
+        cout << "I'm student" <<endl;
     }
 };
-class Youtuber{
+
+class Male{
     public:
-    int subscribers;
-    void sub_count(){
-        cout << "I have " << subscribers << " subscribers" << endl;
+    void male(){
+        cout << "I'm male"<<endl;
     }
 };
 
-class Person: public Youtuber, public Engineer{ // firstly Youtuber constructor call then  then engineer  cons called.
+class Female{
     public:
-    string name;
-    Person(string name, int subscribers, string specialization){
-        this->name = name;
-        this->subscribers = subscribers;
-        this->specialization = specialization;
+    void female(){
+        cout << "I'm female"<<endl;
     }
+};
 
-    void display(){
-        cout << "My name is " << name <<endl;
-        work();
-        sub_count();
+class Boy: public Student, public Male{
+    public:
+    void boy(){
+        cout << "I'm boy"<<endl;
+    }
+};
+
+class Girl: public Student, public Female{
+    public:
+    void girl(){
+        cout << "I'm girl"<<endl;
     }
 };
 
 int main(){
-    Person P1("sachin", 100000, "Computer Science");
-    P1.display();
-    // constructor are called in order,
-    // Youtuber constructor
-    // Engineer constructor 
-    // Person cosntructor
+    Boy B1;
+    B1.male();
+    B1.boy();
+
+    Girl G1;
+    G1.female();
+    G1.girl();
 }
