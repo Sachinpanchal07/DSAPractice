@@ -181,27 +181,94 @@ using namespace std;
 
 //+++++++++++++++++++++++++++++++++++++++ Access modifier ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Human{
-    private:
-    int a;
-    protected:
-    int b;
-    public:
-    int c;
+// class Human{
+//     private:
+//     int a;
+//     protected:
+//     int b;
+//     public:
+//     int c;
 
-    void display(){
-        a = 10;
-        b = 20; 
-        c = 30;
-        cout << a << b << c;
+//     void display(){
+//         a = 10;
+//         b = 20; 
+//         c = 30;
+//         cout << a << b << c;
+//     }
+// };
+// int main(){
+//     Human Obj1;
+//     // Obj1.a = 10; // error
+//     // Obj1.b = 10  // error
+//     // Obj1.c = 10; // ok
+//     Obj1.display();
+// }
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++ inheritance +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// // Base class or parent class
+// class Human{ 
+//     // private:
+//     // protected:
+//     public:
+//     string name;
+//     int age;
+
+//     public:
+
+//     void settter(string name, int age ){
+//         this->name = name;
+//         this->age = age;
+//     }
+//     void display(){
+//         cout << name << " " << age;
+//     }
+// };
+
+// // Derived class or child class
+// class Student: protected Human{
+//     public:
+//     int roll_no;
+// };
+
+// int main(){
+//     Student S1;
+//     // S1.roll_no = 5;
+//     // S1.name = "sachin";
+//     // S1.age = 2;
+// }
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+class Human{ 
+    private:
+    string religion, color;
+
+    protected:
+    string name;
+    int age;  
+};
+
+class Student: protected Human{
+    protected:
+    int roll_no, weight;
+
+    public:
+    Student(string name, int age, int roll_no, int weight){
+        this->name = name;
+        this->age =age;
+        this->roll_no = roll_no;
+        this->weight = weight;
     }
 
+    public:
+    void display(){
+        cout << name << " age is " << age << " roll no. is " << roll_no << " weight is " << weight;
+    }
 };
 
 int main(){
-    Human Obj1;
-    // Obj1.a = 10; // error
-    // Obj1.b = 10  // error
-    // Obj1.c = 10; // ok
-    Obj1.display();
+    Student S1("john", 33, 44, 100);
+    S1.display();
+   
 }
