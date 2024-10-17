@@ -431,4 +431,5 @@ int main(){
     Girl G1;
     G1.female();
     G1.girl();
+    B1.male();
 }
