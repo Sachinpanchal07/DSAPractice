@@ -388,48 +388,68 @@ using namespace std;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++ hybrid Inheritance +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Student{
+// class Student{
+//     public:
+//     void stud(){
+//         cout << "I'm student" <<endl;
+//     }
+// };
+
+// class Male{
+//     public:
+//     void male(){
+//         cout << "I'm male"<<endl;
+//     }
+// };
+
+// class Female{
+//     public:
+//     void female(){
+//         cout << "I'm female"<<endl;
+//     }
+// };
+
+// class Boy: public Student, public Male{
+//     public:
+//     void boy(){
+//         cout << "I'm boy"<<endl;
+//     }
+// };
+
+// class Girl: public Student, public Female{
+//     public:
+//     void girl(){
+//         cout << "I'm girl"<<endl;
+//     }
+// };
+
+// int main(){
+//     Boy B1;
+//     B1.male();
+//     B1.boy();
+
+//     Girl G1;
+//     G1.female();
+//     G1.girl();
+//     B1.male();
+// }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++ polymorphism  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// +++++++++++++++++++ function overloading +++++++++++++++++++++
+
+class Area{
     public:
-    void stud(){
-        cout << "I'm student" <<endl;
+    int area(int r){
+        return 3.14 * r * r;
+    }
+    int area(int l, int b){
+        return l * b;
     }
 };
-
-class Male{
-    public:
-    void male(){
-        cout << "I'm male"<<endl;
-    }
-};
-
-class Female{
-    public:
-    void female(){
-        cout << "I'm female"<<endl;
-    }
-};
-
-class Boy: public Student, public Male{
-    public:
-    void boy(){
-        cout << "I'm boy"<<endl;
-    }
-};
-
-class Girl: public Student, public Female{
-    public:
-    void girl(){
-        cout << "I'm girl"<<endl;
-    }
-};
-
 int main(){
-    Boy B1;
-    B1.male();
-    B1.boy();
+    Area A1;
+    cout << A1.area(5) << endl;
+    cout << A1.area(5,5) << endl;
 
-    Girl G1;
-    G1.female();
-    G1.girl();
-    B1.male();
 }
