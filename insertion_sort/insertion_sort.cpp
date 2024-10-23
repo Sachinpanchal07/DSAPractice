@@ -10,7 +10,7 @@ void insertion_sort(int arr[], int size){
         while (j >= 0 && arr[j] > key)
         {
             arr[j+1] = arr[j]; // shifting the value to the right side.
-            j = j-1;
+            j = j-1;   // incriment j.
         }
         arr[j+1] = key; // now insert the key at right place.
         
@@ -33,4 +33,5 @@ int main(){
     cout << "after sorting: " << endl;
 
     insertion_sort(arr, size);
+
 }
