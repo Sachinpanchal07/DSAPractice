@@ -30,36 +30,70 @@ using namespace std;
 
 // ======================= reverse vector =====================================
 
-vector<int> reverse(vector<int> v){
-    int s = 0, e = v.size() - 1;
-    while(s <= e){
-        swap(v[s], v[e]);
-        s++;
-        e--;
+// vector<int> reverse(vector<int> v){
+//     int s = 0, e = v.size() - 1;
+//     while(s <= e){
+//         swap(v[s], v[e]);
+//         s++;
+//         e--;
+//     }
+
+//     return v;
+
+// }
+// void print(vector<int> v){
+//     for(int i = 0; i< v.size(); i++){
+//         cout << v[i] << " ";
+//     }
+// cout << endl;
+// }
+
+// int main(){
+
+//     vector<int> v;
+
+//     v.push_back(11);
+//     v.push_back(7);
+//     v.push_back(3);
+//     v.push_back(12);
+//     v.push_back(4);
+
+//     vector<int> ans = reverse(v);
+//     print(ans);
+
+//     return 0;
+// }
+
+// ===================== merge two sorted array ===================================
+
+void merge(int a[], int size1, int b[], int size2, int c[]){
+    int i=0,j=0,k = 0;
+    while( i < size1 && j < size2){
+        if(a[i] < b[j]){
+            c[k++] = a[i++];
+        }
+        else{
+            c[k++] = b[j++];
+        }
     }
 
-    return v;
-
-}
-void print(vector<int> v){
-    for(int i = 0; i< v.size(); i++){
-        cout << v[i] << " ";
+    while(i < size1){
+        c[k++] = a[i++];
     }
-cout << endl;
+    while(j < size2){
+        c[k++] = b[j++];
+    }
+
+    for(int i=0; i<8; i++){
+        cout << c[i] << endl;
+    }
 }
+
 
 int main(){
+    int a[5] = {1,3,5,7,9};
+    int b[3] = {2,4,6};
+    int c[8];
 
-    vector<int> v;
-
-    v.push_back(11);
-    v.push_back(7);
-    v.push_back(3);
-    v.push_back(12);
-    v.push_back(4);
-
-    vector<int> ans = reverse(v);
-    print(ans);
-
-    return 0;
+    merge(a, 5, b, 3, c);
 }
