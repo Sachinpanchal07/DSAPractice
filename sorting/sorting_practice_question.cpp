@@ -136,17 +136,37 @@ using namespace std;
 //     }
 // }
 // =========================== alternate of upper code ======================================
-int main(){
-    int arr[5] = {3,0,5,0,0};
-    int size = 5;
-    int nonZero = 0;
-    for(int j=0; j<size; j++){
-        if(arr[j] != 0){
-            swap(arr[nonZero], arr[j]);
-            nonZero++; 
+// int main(){
+//     int arr[5] = {3,0,5,0,0};
+//     int size = 5;
+//     int nonZero = 0;
+//     for(int j=0; j<size; j++){
+//         if(arr[j] != 0){
+//             swap(arr[nonZero], arr[j]);
+//             nonZero++; 
+//         }
+//     }
+//     for(int i=0; i<size; i++){
+//         cout << arr[i]<< endl;
+//     }
+// }
+
+// ===================================== rotate the array ==========================================
+
+void rotate(vector<int>& nums, int k){
+        vector<int> temp(nums.size());
+
+        for(int i=0; i<nums.size(); i++){
+            temp[(i+k)%nums.size()] = nums[i];
         }
+        nums = temp;
     }
-    for(int i=0; i<size; i++){
-        cout << arr[i]<< endl;
+
+int main(){
+    vector<int> nums = {2,4,6,3,6};
+    int k = 2;
+    rotate(nums, k);
+     for(int i=0; i<nums.size(); i++){
+        cout << nums[i]<< endl;
     }
 }
