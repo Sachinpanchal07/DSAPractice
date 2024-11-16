@@ -2,7 +2,6 @@
 #include <vector>
 using namespace std;
 
-
 // ++++++++++++++++++++++ reverse array +++++++++++++++++++++++++++++
 
 // void reverse(int arr[], int size){
@@ -89,7 +88,6 @@ using namespace std;
 //     }
 // }
 
-
 // int main(){
 //     int a[5] = {1,3,5,7,9};
 //     int b[3] = {2,4,6};
@@ -115,7 +113,6 @@ using namespace std;
 //         cout << a[i]<< " ";
 //     }
 // }
-
 
 // ============================ putting zero's value at right side ============================
 // int main(){
@@ -143,7 +140,7 @@ using namespace std;
 //     for(int j=0; j<size; j++){
 //         if(arr[j] != 0){
 //             swap(arr[nonZero], arr[j]);
-//             nonZero++; 
+//             nonZero++;
 //         }
 //     }
 //     for(int i=0; i<size; i++){
@@ -173,26 +170,100 @@ using namespace std;
 
 // ====================== check if array is rotated and sorted =======================
 // there is three cases go to notebook.
-bool rotated_sorted(vector<int>& num){
-    int n = num.size();
-    int count = 0;
-    for(int i=1; i<n; i++){
-        if(num[i-1] > num[i]){
-            count++;
+// bool rotated_sorted(vector<int>& num){
+//     int n = num.size();
+//     int count = 0;
+//     for(int i=1; i<n; i++){
+//         if(num[i-1] > num[i]){
+//             count++;
+//         }
+//     }
+//     if(num[n-1] > num[0]){
+//         count++;
+//     }
+//     if(count<=1){
+//         return true;
+//     }
+//     else{
+//         return false;
+//     }
+// }
+
+// int main(){
+//     vector<int> num = {3,4,5,1,2};
+//     cout << rotated_sorted(num);
+// }
+// ========================================== adding elements of two arrays =======================================
+void reverse(vector<int> & ans)
+    {
+        int s = 0;
+        int e = ans.size() - 1;
+        while (s < e)
+        {
+            swap(ans[s++], ans[e--]);
+        }
+        for (int val : ans)
+        {
+            cout << val << " ";
         }
     }
-    if(num[n-1] > num[0]){
-        count++;
+
+void add(vector<int> &a, vector<int> &b)
+{
+    int carry = 0;
+    int i = a.size() - 1;
+    int j = b.size() - 1;
+    vector<int> ans;
+
+    // handle initial step.
+    while (i >= 0 && j >= 0)
+    {
+        int val1 = a[i];
+        int val2 = b[j];
+        int sum = val1 + val2 + carry;
+
+        int val = sum % 10;
+        carry = sum / 10;
+        ans.push_back(val);
+        i--;
+        j--;
     }
-    if(count<=1){
-        return true;
+    // first step. when second array has small length.
+    while (i >= 0)
+    {
+        int sum = a[i] + carry;
+        int val = sum % 10;
+        carry = sum / 10;
+        ans.push_back(val);
+        i--;
     }
-    else{
-        return false;
+
+    // second step. when first arrya has small length then second array.
+    while (j >= 0)
+    {
+        int sum = a[j] + carry;
+        int val = sum % 10;
+        carry = sum / 10;
+        ans.push_back(val);
+        j--;
     }
+    // when carry!= 0
+    while (carry != 0)
+    {
+        int sum = carry;
+        carry = sum / 10;
+        int val = sum % 10;
+        ans.push_back(val);
+    }
+    reverse(ans);
 }
 
-int main(){
-    vector<int> num = {3,4,5,1,2};
-    cout << rotated_sorted(num);
+
+int main()
+{
+
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {3};
+
+    add(a, b);
 }
