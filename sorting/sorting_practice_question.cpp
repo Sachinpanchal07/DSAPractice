@@ -153,20 +153,46 @@ using namespace std;
 
 // ===================================== rotate the array ==========================================
 
-void rotate(vector<int>& nums, int k){
-        vector<int> temp(nums.size());
+// void rotate(vector<int>& nums, int k){
+//         vector<int> temp(nums.size());
 
-        for(int i=0; i<nums.size(); i++){
-            temp[(i+k)%nums.size()] = nums[i];
+//         for(int i=0; i<nums.size(); i++){
+//             temp[(i+k)%nums.size()] = nums[i];
+//         }
+//         nums = temp;
+//     }
+
+// int main(){
+//     vector<int> nums = {2,4,6,3,6};
+//     int k = 2;
+//     rotate(nums, k);
+//      for(int i=0; i<nums.size(); i++){
+//         cout << nums[i]<< endl;
+//     }
+// }
+
+// ====================== check if array is rotated and sorted =======================
+// there is three cases go to notebook.
+bool rotated_sorted(vector<int>& num){
+    int n = num.size();
+    int count = 0;
+    for(int i=1; i<n; i++){
+        if(num[i-1] > num[i]){
+            count++;
         }
-        nums = temp;
     }
+    if(num[n-1] > num[0]){
+        count++;
+    }
+    if(count<=1){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 int main(){
-    vector<int> nums = {2,4,6,3,6};
-    int k = 2;
-    rotate(nums, k);
-     for(int i=0; i<nums.size(); i++){
-        cout << nums[i]<< endl;
-    }
+    vector<int> num = {3,4,5,1,2};
+    cout << rotated_sorted(num);
 }
