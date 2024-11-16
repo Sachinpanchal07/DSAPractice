@@ -135,3 +135,18 @@ using namespace std;
 //         cout << arr[i] << endl;
 //     }
 // }
+// =========================== alternate of upper code ======================================
+int main(){
+    int arr[5] = {3,0,5,0,0};
+    int size = 5;
+    int nonZero = 0;
+    for(int j=0; j<size; j++){
+        if(arr[j] != 0){
+            swap(arr[nonZero], arr[j]);
+            nonZero++; 
+        }
+    }
+    for(int i=0; i<size; i++){
+        cout << arr[i]<< endl;
+    }
+}
