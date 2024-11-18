@@ -194,76 +194,75 @@ using namespace std;
 //     cout << rotated_sorted(num);
 // }
 // ========================================== adding elements of two arrays =======================================
-void reverse(vector<int> & ans)
-    {
-        int s = 0;
-        int e = ans.size() - 1;
-        while (s < e)
-        {
-            swap(ans[s++], ans[e--]);
-        }
-        for (int val : ans)
-        {
-            cout << val << " ";
-        }
-    }
+// void reverse(vector<int> & ans)
+//     {
+//         int s = 0;
+//         int e = ans.size() - 1;
+//         while (s < e)
+//         {
+//             swap(ans[s++], ans[e--]);
+//         }
+//         for (int val : ans)
+//         {
+//             cout << val << " ";
+//         }
+//     }
 
-void add(vector<int> &a, vector<int> &b)
-{
-    int carry = 0;
-    int i = a.size() - 1;
-    int j = b.size() - 1;
-    vector<int> ans;
+// void add(vector<int> &a, vector<int> &b)
+// {
+//     int carry = 0;
+//     int i = a.size() - 1;
+//     int j = b.size() - 1;
+//     vector<int> ans;
 
-    // handle initial step.
-    while (i >= 0 && j >= 0)
-    {
-        int val1 = a[i];
-        int val2 = b[j];
-        int sum = val1 + val2 + carry;
+//     // handle initial step.
+//     while (i >= 0 && j >= 0)
+//     {
+//         int val1 = a[i];
+//         int val2 = b[j];
+//         int sum = val1 + val2 + carry;
 
-        int val = sum % 10;
-        carry = sum / 10;
-        ans.push_back(val);
-        i--;
-        j--;
-    }
-    // first step. when second array has small length.
-    while (i >= 0)
-    {
-        int sum = a[i] + carry;
-        int val = sum % 10;
-        carry = sum / 10;
-        ans.push_back(val);
-        i--;
-    }
+//         int val = sum % 10;
+//         carry = sum / 10;
+//         ans.push_back(val);
+//         i--;
+//         j--;
+//     }
+//     // first step. when second array has small length.
+//     while (i >= 0)
+//     {
+//         int sum = a[i] + carry;
+//         int val = sum % 10;
+//         carry = sum / 10;
+//         ans.push_back(val);
+//         i--;
+//     }
 
-    // second step. when first arrya has small length then second array.
-    while (j >= 0)
-    {
-        int sum = a[j] + carry;
-        int val = sum % 10;
-        carry = sum / 10;
-        ans.push_back(val);
-        j--;
-    }
-    // when carry!= 0
-    while (carry != 0)
-    {
-        int sum = carry;
-        carry = sum / 10;
-        int val = sum % 10;
-        ans.push_back(val);
-    }
-    reverse(ans);
-}
+//     second step. when first arrya has small length then second array.
+//     while (j >= 0)
+//     {
+//         int sum = a[j] + carry;
+//         int val = sum % 10;
+//         carry = sum / 10;
+//         ans.push_back(val);
+//         j--;
+//     }
+//     when carry!= 0
+//     while (carry != 0)
+//     {
+//         int sum = carry;
+//         carry = sum / 10;
+//         int val = sum % 10;
+//         ans.push_back(val);
+//     }
+//     reverse(ans);
+// }
 
 
-int main()
-{
+// int main()
+// {
+//     vector<int> a = {1, 2, 3};
+//     vector<int> b = {3};
 
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {3};
-
-    add(a, b);
-}
+//     add(a, b);
+// }
