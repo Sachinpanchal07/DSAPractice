@@ -138,3 +138,60 @@ using namespace std;
 //     waveSum(arr, 3, 4);
 // }
 
+// ===================================== spiral traverse in matrix =====================================
+
+void spiralTraverse(int arr[][4], int nrow, int mcol){
+    int count = 0;
+    int total_elements = nrow * mcol;
+
+    int starting_row = 0;
+    int ending_row = nrow - 1;
+    int starting_col = 0;
+    int ending_col = mcol-1;
+
+    while (count < total_elements)
+    {
+        // print starting row, check count sath sath taki count total se aage na nikal jaye
+        for(int index=starting_col; count<total_elements && index<=ending_col; index++){
+            cout << arr[starting_row][index] << " ";
+            count++;
+        }
+        starting_row++;
+
+        // print ending col
+        for(int index=starting_row; count<total_elements && index<=ending_row; index++){
+            cout << arr[index][ending_col] <<" ";
+            count++;
+        }
+        ending_col--;
+        
+        // print ending row in reverse
+        for(int index=ending_col; count<total_elements && index>=starting_col; index--){
+            cout << arr[ending_row][index] << " ";
+            count++;
+        }
+        ending_row--;
+
+        // print starting col in reverse
+        for(int index=ending_row; count<total_elements && index>=starting_row; index--){
+            cout << arr[index][starting_col] << " ";
+            count++;
+        }
+        starting_col++;
+    }
+    
+}
+
+int main(){
+
+    int arr[3][4]= {1,2,3,4,5,6,7,8,9,10,11,12};
+
+    for(int i=0; i<3; i++){
+        for (int j=0; j<4; j++){
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << "======================" << endl;
+    spiralTraverse(arr, 3, 4);
+}
