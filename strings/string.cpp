@@ -27,35 +27,53 @@ using namespace std;
 
 // ============================ find max character in string ==============================
 
-int main()
-{
+// int main()
+// {
 
-    string inp = "a bb ccc dddd ffffffff";
-    int arr[26] = {0};
-    int max = -1;
-    int maxIndex = -1;
-    // finding freq of letters
-    for (char str : inp)
-    {
-        if (str == ' ')
-        {
-            continue;
-        }
-        else
-        {
-            int num = str - 'a';
-            arr[num]++;
-            // cout << num << endl;
-        }
-    }
-    // finding max freq index and max freq
-    for(int i=0; i<26; i++){
-        if(max < arr[i]){
-            max = arr[i];
-            maxIndex = i;
-        }
-    }
-    char output = maxIndex +'a';
+//     string inp = "a bb ccc dddd ffffffff";
+//     int arr[26] = {0};
+//     int max = -1;
+//     int maxIndex = -1;
+//     // finding freq of letters
+//     for (char str : inp)
+//     {
+//         if (str == ' ')
+//         {
+//             continue;
+//         }
+//         else
+//         {
+//             int num = str - 'a';
+//             arr[num]++;
+//             // cout << num << endl;
+//         }
+//     }
+//     // finding max freq index and max freq
+//     for(int i=0; i<26; i++){
+//         if(max < arr[i]){
+//             max = arr[i];
+//             maxIndex = i;
+//         }
+//     }
+//     char output = maxIndex +'a';
     
-    cout << "maximum times the character occured is: " << output;
+//     cout << "maximum times the character occured is: " << output;
+// }
+
+// ===========
+
+int main(){
+
+    
+// string a = "abbaabaac";
+// for (int i=0; i<(a.size()-1); i++){
+//     if(a[i] == a[i+1]){
+//         a.erase(i);
+//         a.erase(i+1);
+//         i = -1;
+//     }
+// }
+// for(char ch: a){
+//     cout << ch << endl;
+// }
 }
