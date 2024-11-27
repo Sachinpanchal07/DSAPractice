@@ -80,5 +80,61 @@ using namespace std;
 // }
 
 // ==================================== adding sum of row ========================================
+// void sum(int arr[][4], int row, int col){
+//     int sum = 0;
+//     for(int row=0; row<3; row++){
+//         for(int col=0; col<4; col++){
+//             sum += arr[row][col];
+//         }
+//         cout << "sum of line: "<< row << " is "<< sum << endl;
+//         sum = 0;
+//     }
+    
+// }
+// int main(){
+//     int arr[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12};
+//     for(int row=0; row<3; row++){
+//         for(int col=0; col<4; col++){
+//             cout << arr[row][col] << " ";
+//         }
+//         cout << endl;
+//     }
+//     sum(arr,3,4);
 
+// }
+
+// =========================================== wave sum of columns ================================================
+
+// void waveSum(int arr[][4], int nrow, int mcol){
+//     for(int col=0; col<mcol; col++){
+
+//         // if col is odd, travers bottom to top
+//         if((col%2)!=0){
+//             for(int row=nrow-1; row>=0; row--){
+//                 cout << arr[row][col] << " ";
+//             }
+//         }
+//         // if col is even, travers top to bottom
+//         else{
+//             for(int row=0; row<nrow; row++){
+//                 cout << arr[row][col] << " ";
+//             }
+//         }
+//         cout << endl;
+//     }
+// }
+
+// int main(){
+
+//     int arr[3][4]= {1,2,3,4,5,6,7,8,9,10,11,12};
+
+//     for(int i=0; i<3; i++){
+//         for (int j=0; j<4; j++){
+//             cout << arr[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+//     cout << "======================" << endl;
+//     waveSum(arr, 3, 4);
+// }
 
