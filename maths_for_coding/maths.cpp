@@ -29,7 +29,23 @@ using namespace std;
 
 // =================================== finding GDC/HCF =====================================
 
-int main(){
+// int main(){
 
-    
-}
+//     int a = 68, b = 22;
+
+//     if(a==0){
+//         cout << b;
+//     }
+//     if(b==0){
+//         cout << a;
+//     }
+//     while(a!=b){
+//         if(a>b){
+//             a = a-b;
+//         }
+//         else{
+//             b = b-a;
+//         }
+//     }
+//     cout << a;
+// }
