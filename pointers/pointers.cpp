@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+#define PI 3.14
 
 // int main(){
     
@@ -93,5 +94,14 @@ using namespace std;
 
 //     int* arr = new int[5]; // specify memory at runtime.
 //     print(arr,n);
+// }
 
+// ================== Macros =====================
+
+// int main(){
+
+// int r = 5;
+// int area = PI * r * r; // PI is defind at top level.
+// cout << area;
+// return 0;
 // }
