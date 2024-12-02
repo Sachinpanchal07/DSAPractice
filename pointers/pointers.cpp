@@ -63,3 +63,35 @@ using namespace std;
 //     cout << p << endl;
 //     cout << p2 << endl;
 // }
+
+// ======================= refernce vairable ===========================
+
+// void update(int& j){
+//     j++;
+// }
+// int main(){
+//     int i = 5;
+//     cout << i <<endl;
+//     update(i);
+//     cout << i << endl;
+// }
+// ========================= static vs dynamic memory allocation ============================
+
+// void print(int* arr, int n){
+//     for(int i=0; i<n; i++){
+//         cin >> arr[i];
+//     }
+
+//     for( int i=0; i<n; i++){
+//         cout << arr[i] << endl;
+//     }
+// }
+
+// int main(){
+//     int n;
+//     cin >> n;
+
+//     int* arr = new int[5]; // specify memory at runtime.
+//     print(arr,n);
+
+// }
