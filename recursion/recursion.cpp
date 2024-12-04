@@ -1,11 +1,11 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 // factorial of n
 
 /*
 int factorial(int n){
-    // base case 
+    // base case
     if(n==0){
         return 1;
     }
@@ -42,7 +42,7 @@ int main(){
 */
 
 // fibonacci series
-
+/*
 int fib(int n){
     if(n == 0){
         return 0;
@@ -58,4 +58,23 @@ int main(){
     int n = 8;
     int ans = fib(n);
     cout << ans ;
+}
+*/
+
+// Say digit
+void printDigit(int n, string arr[]){
+    if(n == 0){
+        return;
+    }
+    int digit = n%10;
+    n = n / 10;
+    printDigit(n, arr);
+    cout << arr[digit] << " ";
+}
+
+int main()
+{
+    string arr[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    int n = 3435;
+    printDigit(n, arr);
 }
