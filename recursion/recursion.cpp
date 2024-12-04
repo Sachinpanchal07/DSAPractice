@@ -2,6 +2,8 @@
 using namespace std;
 
 // factorial of n
+
+/*
 int factorial(int n){
     // base case 
     if(n==0){
@@ -17,4 +19,24 @@ int main(){
     cout << ans;
     return 0;
 }
+*/
 
+// counting of 1 to n;
+
+/*
+void count(int n){
+    // base case
+    if(n==0){
+        return;
+    }
+    cout << n << endl;// processing
+    count(n-1); // recursive relation
+    cout << n << endl;
+}
+
+int main(){
+    int n = 10;
+    count(n);
+    return 0;
+}
+*/
