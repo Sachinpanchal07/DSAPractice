@@ -62,19 +62,19 @@ int main(){
 */
 
 // Say digit
-void printDigit(int n, string arr[]){
-    if(n == 0){
-        return;
-    }
-    int digit = n%10;
-    n = n / 10;
-    printDigit(n, arr);
-    cout << arr[digit] << " ";
-}
+// void printDigit(int n, string arr[]){
+//     if(n == 0){
+//         return;
+//     }
+//     int digit = n%10;
+//     n = n / 10;
+//     printDigit(n, arr);
+//     cout << arr[digit] << " ";
+// }
 
-int main()
-{
-    string arr[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    int n = 3435;
-    printDigit(n, arr);
-}
+// int main()
+// {
+//     string arr[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+//     int n = 3435;
+//     printDigit(n, arr);
+// }
