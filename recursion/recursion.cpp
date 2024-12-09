@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// factorial of n
+// =========================factorial of n
 
 /*
 int factorial(int n){
@@ -21,7 +21,7 @@ int main(){
 }
 */
 
-// counting of 1 to n;
+// =================counting of 1 to n;
 
 /*
 void count(int n){
@@ -41,7 +41,7 @@ int main(){
 }
 */
 
-// fibonacci series
+// ======================fibonacci series
 
 /*
 int fib(int n){
@@ -62,7 +62,7 @@ int main(){
 }
 */
 
-// Say digit
+// =============================Say digit
 
 /* void printDigit(int n, string arr[]){
     if(n == 0){
@@ -82,7 +82,7 @@ int main()
 }
 */
 
-// Is array sorted
+// =======================Is array sorted
 
 /*
 bool isSorted(int *arr, int size){
@@ -113,7 +113,7 @@ int main(){
 }
 */
 
-// sum of array
+// ==========================sum of array
 
 /*
 int sum(int* arr, int size){
@@ -133,3 +133,73 @@ int main(){
     cout << "sum of elements is " <<  ans;
 }
 */
+
+// =============================linear search
+/*
+bool find(int* arr, int size, int key){
+    if(size == 0){
+        return false;
+    }
+    else{
+        if(arr[0] == key){
+            return true;
+        }
+
+        return find(arr+1, size-1, key);
+    }
+    
+}
+
+int main(){
+    int arr[6] = {5,2,3,4,5,6};
+    int size = 6;
+    int key = 5;
+    bool ans;
+     
+    ans = find(arr, size, key); 
+    if(ans){
+        cout<< "element found ";
+    }
+    else{
+        cout << "not found";
+    }
+}
+*/
+
+// =============== binary search
+
+bool find(int* arr, int key, int s, int e){
+    if(s > e){
+        return false;
+    }
+    int mid = (s+e)/2;
+
+    if(key == arr[mid]){
+        return true;
+    }
+    else if(key > arr[mid]){
+        
+       return find(arr, key, mid+1, e);
+    }
+    else{
+       return find(arr, key, s, mid-1);
+    }
+}
+
+int main(){
+    int arr[6] = {1,2,3,4,5,6};
+    int size = 6;
+    int key = 6;
+    int s = 0;
+    int e = size-1;
+
+    bool ans;
+     
+    ans = find(arr, key, s, e); 
+    if(ans){
+        cout<< "element found ";
+    }
+    else{
+        cout << "not found";
+    }
+}
