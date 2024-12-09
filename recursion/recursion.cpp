@@ -42,6 +42,7 @@ int main(){
 */
 
 // fibonacci series
+
 /*
 int fib(int n){
     if(n == 0){
@@ -62,19 +63,50 @@ int main(){
 */
 
 // Say digit
-// void printDigit(int n, string arr[]){
-//     if(n == 0){
-//         return;
-//     }
-//     int digit = n%10;
-//     n = n / 10;
-//     printDigit(n, arr);
-//     cout << arr[digit] << " ";
-// }
 
-// int main()
-// {
-//     string arr[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-//     int n = 3435;
-//     printDigit(n, arr);
-// }
+/* void printDigit(int n, string arr[]){
+    if(n == 0){
+        return;
+    }
+    int digit = n%10;
+    n = n / 10;
+    printDigit(n, arr);
+    cout << arr[digit] << " ";
+}
+
+int main()
+{
+    string arr[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    int n = 3435;
+    printDigit(n, arr);
+}
+*/
+
+// Is array sorted
+
+bool isSorted(int *arr, int size){
+    if(size == 0 || size == 1){
+        return true;
+    }
+    if(arr[0] > arr[1]){
+        return false;
+    }
+    else{
+    bool ans = isSorted(arr+1, size-1);
+    return ans;
+    }
+}
+
+int main(){
+    int arr[6] = {1,2,3,4,5,6};
+    int size = 6;
+    bool ans;
+     
+    ans = isSorted(arr, size); 
+    if(ans==true){
+        cout << "array is sorted";
+    }
+    else{
+        cout << "Not sorted";
+    }
+}
