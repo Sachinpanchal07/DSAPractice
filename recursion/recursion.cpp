@@ -84,6 +84,7 @@ int main()
 
 // Is array sorted
 
+/*
 bool isSorted(int *arr, int size){
     if(size == 0 || size == 1){
         return true;
@@ -110,3 +111,25 @@ int main(){
         cout << "Not sorted";
     }
 }
+*/
+
+// sum of array
+
+/*
+int sum(int* arr, int size){
+    if(size == 0 ){
+        return 0;
+    }
+    int ans = arr[0] + sum(arr+1, size-1);
+    return ans;
+}
+
+int main(){
+    int arr[6] = {5,2,3,4,5,6};
+    int size = 6;
+    int ans;
+     
+    ans = sum(arr, size); 
+    cout << "sum of elements is " <<  ans;
+}
+*/
