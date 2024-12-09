@@ -231,6 +231,7 @@ int main(){
 
 // check palindrome
 
+/*
 bool reverse(string str, int s, int e){
     if(s>e){
         return true;
@@ -248,3 +249,4 @@ int main(){
     string str = "abcba";
     cout << reverse(str, 0, str.length()-1);
 }
+*/
