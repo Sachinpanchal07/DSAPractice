@@ -167,7 +167,7 @@ int main(){
 */
 
 // =============== binary search
-
+/*
 bool find(int* arr, int key, int s, int e){
     if(s > e){
         return false;
@@ -203,3 +203,28 @@ int main(){
         cout << "not found";
     }
 }
+*/
+
+// reverse string
+
+/*
+void reverse(string& str, int s, int e){
+    if(s>e){
+        return;
+    }
+    swap(str[s], str[e]);
+    s++;
+    e--;
+    reverse(str, s, e);
+}
+
+int main(){
+   string str = "abcde";
+   int s = 0;
+   int e = str.length()-1;
+   reverse(str, s, e);
+   for(int i=0; i<str.length(); i++){
+    cout << str[i];
+   }
+}
+*/
