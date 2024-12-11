@@ -71,3 +71,37 @@ int main(){
     sq(arr,n);
 }
 */
+
+/*
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        // string str = to_string(x);
+        // int s = 0;
+        // int e = str.length() - 1;
+        // while (s <= e) {
+        //     if (str[s++] != str[e--]) {
+        //         return false;
+        //     }
+        // }
+        // return true;
+
+        if(x < 0){
+            return false;
+        }
+        long long ans = 0;
+        long long num = x;
+        while(num > 0){
+            int rem = num % 10;
+            num = num / 10;
+            ans = ans*10 + rem;
+        }
+        if(ans == x){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
+*/

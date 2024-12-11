@@ -41,6 +41,7 @@ void merge(int *arr, int s, int mid, int e){
             index2++;
         }
     }
+    
     // if any of array has finished 
     while(index1 < l1){
         arr[k] = first[index1];
