@@ -135,3 +135,20 @@ public:
     }    
 };
 */
+
+// longest common prefix;
+/*
+        int len = strs.size() - 1;
+        sort(strs.begin(), strs.end());
+        string ans = "";
+        string first = strs[0], last = strs[len];
+
+        for (int i = 0;i<first.size(); i++) {
+            if (strs[0][i] != strs[len][i]) {
+                return ans;
+            }
+            ans += strs[0][i];
+        }
+        return ans;
+    }
+*/
