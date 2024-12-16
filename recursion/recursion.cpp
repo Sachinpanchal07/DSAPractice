@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 // =========================factorial of n
@@ -253,7 +254,7 @@ int main(){
 */
 
 // =========== subsets or supersets of array
-
+/*
 void solve(vector<int>v, int index, vector<vector<int>>& ans, vector<int> output){
     if(index>=v.size()){
         ans.push_back(output);
@@ -280,3 +281,4 @@ int main(){
         cout << "}";
     }
 }
+*/
