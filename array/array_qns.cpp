@@ -177,3 +177,30 @@ public:
     }
 };
 */
+
+// LENGTH OF LAST WORD
+/*
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int ans = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s[0] == ' ' && s.length() == 1) {
+                return 0;
+            } else if (s.length() == 1) {
+                return 1;
+            } else if (s[i] == ' ') {
+                continue;
+            } else {
+                while (s[i] != ' ') {
+                    ans += 1;
+                    i--;
+                }
+                return ans;
+
+            }
+        }
+        return ans;
+    }
+};
+*/
