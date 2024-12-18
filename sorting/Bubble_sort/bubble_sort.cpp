@@ -8,7 +8,7 @@ void bubbleSort(int arr[], int size){
                 swap(arr[j], arr[j+1]);
                 sorted = true;
             }
-            if (sorted==true){ // more optimized
+            if (sorted==false){ // more optimized
                 break; // Means array is already sorted b/z no swaping occured.
             }
         }
@@ -18,7 +18,7 @@ void bubbleSort(int arr[], int size){
     }
 }
 int main(){
-    int arr[5] = {5,4,3,2,1};
+    int arr[5] = {1,2,3,4,5};
     int size = 5;
     cout << "before sorting:" << endl;
     for(int i=0;i<size;i++){
@@ -27,3 +27,4 @@ int main(){
     cout << "after Sorting: "<<endl;
     bubbleSort(arr, size);
 }
+
