@@ -230,7 +230,7 @@ public:
 */
 
 // Letter combinations of a phone numbers
-/*
+
 void solve(string digit, vector<string>& ans, string output, int index, string mapping[]){
     // base case
     if(index >= digit.length()){
@@ -261,4 +261,4 @@ int main(){
         cout << ans[i] << " ";
     }
 }
-*/
+
