@@ -1,0 +1,13 @@
+	love babbar video qns
+
+recursoin best qns ---->
+
+1) factorial
+2) counting 
+3) Fibonacci
+4) binary search
+5) 2d array recursion
+6) subset of set.
+7) phone keypad problem.
+8) permutation of string or array.
+9) Rate in Maze. (not practice till now will do latter in recurion qns)-slightly confusion.
