@@ -1,0 +1,7 @@
+Array Possible approaches
+1) two pointers
+2) bitwise operator 
+3) using stack
+4) sort then search
+5) reverse can be help
+6) using unordered_map
