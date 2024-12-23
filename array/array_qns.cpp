@@ -261,3 +261,24 @@ public:
     }
 };
 */
+
+// Majority element 
+/*
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<int,int> a;
+        for(int x:nums){
+            a[x]++;
+        }
+        n = n/2;
+        for(auto z:a){
+            if(z.second > n){
+               return z.first;
+            }
+        }
+        return 0;
+    }
+};
+*/

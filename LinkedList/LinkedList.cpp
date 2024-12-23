@@ -16,9 +16,9 @@ public:
 // insert at head node
 void insertAtHead(Node *&head, int d)
 {
-    Node *node2 = new Node(d);
-    node2 -> next = head;
-    head = node2;
+    Node *newNode = new Node(d);
+    newNode -> next = head;
+    head = newNode;
 }
 
 // traverse in singly LL
@@ -48,3 +48,7 @@ int main()
     insertAtHead(head, 10);
     traverse(head);
 }
+
+
+
+
