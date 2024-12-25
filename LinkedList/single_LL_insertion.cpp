@@ -12,7 +12,7 @@ public:
         this->next = NULL;
     }
 };
-
+//                           =================== insertion ======================
 // insert at head node
 void insertAtHead(Node*& head, int d)
 {
@@ -71,6 +71,12 @@ void traverse(Node *head)
     cout << endl;
 }
 
+//                        ====================== deletion ======================
+
+void deleteNode(){
+    
+}
+
 int main()
 {
     // create a dynamic memeory node.
@@ -95,8 +101,6 @@ int main()
     // insert at specific postion
     insertATPosition(head, tail, 3, 12);
     traverse(head);
-
-
 
 }
 

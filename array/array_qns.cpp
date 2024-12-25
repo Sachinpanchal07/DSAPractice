@@ -267,18 +267,42 @@ public:
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int n = nums.size();
-        unordered_map<int,int> a;
-        for(int x:nums){
-            a[x]++;
-        }
-        n = n/2;
-        for(auto z:a){
-            if(z.second > n){
-               return z.first;
+        int count = 0;
+        int el = 0;
+        for(int i=0; i<nums.size(); i++){
+            if(count == 0){
+                el = nums[i];
+                count = 1;
+            }
+            else if(el = nums[i]){
+                count++;
+            }
+            else{
+                count--
             }
         }
-        return 0;
+        return el;
     }
 };
 */
+
+// constain dubplicate 2
+/*
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        unordered_map<int,int> m; 
+        m.insert({nums[0],0});
+        for(int i=1; i<nums.size(); i++){
+            if(m.count(nums[i]) && abs(m.at(nums[i]) - i) <= k){
+                return true;
+            }
+            else{
+                m[nums[i]] = i;
+            }
+        }
+        return false;
+    }
+};
+*/
+

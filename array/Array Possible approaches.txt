@@ -4,4 +4,7 @@ Array Possible approaches
 3) using stack
 4) sort then search
 5) reverse can be help
-6) using unordered_map
+6) using unordered_map.
+7) --> Moore's voting algorithm.
+8) using sum of whole array or something like this.
+9) sliding window.
