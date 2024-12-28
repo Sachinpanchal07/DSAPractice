@@ -77,7 +77,12 @@ void insertAtTail(Node*& head, Node*& tail, int d){
 }
 
 // insert at specific postion.
-void insertAtPosition(Node*& head, Node* tail, int pos, int d){
+void insertAtPosition(Node*& head, Node*& tail, int pos, int d){
+    int len = length(head);
+    if(pos > len+1 || pos < 1){
+        cout << "enter a valid position to insert " << endl;
+        return;
+    }
     // at begin
     if(pos == 1){
         insertAtHead(head, tail, d);
@@ -103,7 +108,86 @@ void insertAtPosition(Node*& head, Node* tail, int pos, int d){
     temp->next->prev = newNode;
     temp->next = newNode;
     newNode->prev = temp;
+}
 
+//                              ============= deletion in DLL ================
+// delete at head
+void deleteAtStart(Node*& head){
+    if (head == NULL){
+        cout << "List is empty cannot delete " << endl;
+        return;
+    }
+    else{
+        Node* temp = head;
+        head = temp->next;
+        head->prev = NULL;
+        temp->next = NULL;
+
+        // free memory for temp;
+        delete temp;
+    }
+    return;
+}
+// delete at last
+void deleteAtLast(Node*& head, Node*& tail){
+    // if head is null
+    if (head == NULL){
+        cout << "List is empty cannot delete " << endl;
+        return;
+    }
+
+    // if only one element is present in list.
+    if (head == tail) {
+        delete head;
+        head = tail = NULL;
+        return;
+    }
+    Node* temp = head;
+
+    if(temp->next->next != NULL){
+        temp = temp->next;
+    }
+    tail->prev = NULL;
+    temp->next = tail->next;
+    delete tail;
+    tail = temp;
+    return;
+}
+
+// delete at postion
+void deleteAtPosition(Node*& head, Node*& tail, int pos){
+    if(pos == 1){
+        deleteAtStart(head);
+        return;
+    }
+    // if postion is invalid.
+    int len = length(head);
+    if(pos > len || pos < 1){
+        cout << "Invalid postion for deletion " << endl;
+        return;
+    }
+
+    Node* curr = head;
+    Node* pre = NULL;
+    int count = 1;
+    while(count < pos){
+        pre = curr;
+        curr = curr->next;
+        count++;
+    }
+
+    if(curr->next == NULL){
+        deleteAtLast(head,tail);
+        return;
+    }
+    else{
+        pre->next = curr->next;
+        curr->next->prev = pre;
+        curr->next = NULL;
+        curr->prev = NULL;
+        delete curr;
+    }
+    return;
 }
 
 int main(){
@@ -125,10 +209,22 @@ int main(){
     cout << "length of node " << length(head) <<endl;
     traverse(head);
 
-    insertAtPosition(head, tail, 1, 20);
+    insertAtPosition(head, tail, 3, 20);
     cout << "length of node " << length(head) <<endl;
     traverse(head);
 
+    // deletion
+    // deleteAtStart(head);
+    // cout << "length of node " << length(head) <<endl;
+    // traverse(head);
+
+    // deleteAtLast(head, tail);
+    // cout << "length of node " << length(head) <<endl;
+    // traverse(head);
+
+    // deleteAtPosition(head, tail, 6);
+    // cout << "length of node " << length(head) <<endl;
+    // traverse(head);
 
     cout << "head at node " << head->data << endl;
     cout << "tail at node " << tail->data << endl;
