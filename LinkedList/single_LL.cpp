@@ -22,18 +22,35 @@ public:
 };
 //                           =================== insertion ======================
 // insert at head node
-void insertAtHead(Node*& head, int d)
+void insertAtHead(Node*& head, Node*& tail, int d)
 {
-    Node *newNode = new Node(d);
-    newNode -> next = head;
-    head = newNode;
+    if(head == NULL){
+        Node *newNode = new Node(d);
+        head = newNode;
+        tail = newNode;
+    }
+    else{
+        Node *newNode = new Node(d);
+        newNode -> next = head;
+        head = newNode;
+    }
+    return;
 }
 
 // insert at tail
-void insertAtTail(Node*& tail, int d){
-    Node* newNode = new Node(d);
-    tail -> next = newNode;
-    tail = newNode;
+void insertAtTail(Node*& head, Node*& tail, int d){
+    if(tail == NULL){
+        Node* newNode = new Node(d);
+        tail = newNode;
+        head = newNode;
+    }
+    else{
+        Node* newNode = new Node(d);
+        tail -> next = newNode;
+        tail = newNode;
+    }
+    return;
+    
 }
 
 // insert at specific postion
@@ -42,7 +59,7 @@ void insertATPosition(Node*& head, Node*& tail, int pos, int d){
 
     // insert at begin.
     if(pos == 1){
-        insertAtHead(head, d);
+        insertAtHead(head, tail, d);
         return;
     }
 
@@ -55,7 +72,7 @@ void insertATPosition(Node*& head, Node*& tail, int pos, int d){
 
     // check if pos is last node or not.
     if(temp -> next == NULL){
-        insertAtTail(tail, d);
+        insertAtTail(head, tail, d);
         return;
     }
 
@@ -67,10 +84,10 @@ void insertATPosition(Node*& head, Node*& tail, int pos, int d){
     temp -> next = newNode;
 }
 
-//                     ====================== traversal ===================
+//                         ====================== traversal ===================
 
 // traverse in singly LL
-void traverse(Node *head)
+void traverse(Node*& head)
 {
     Node *temp = head;
     while (temp != NULL)
@@ -81,13 +98,12 @@ void traverse(Node *head)
     cout << endl;
 }
 
-//                        ====================== deletion ======================
+//                         ====================== deletion ======================
 
 // delete the first node.
-void deleteFirstNode(Node*& head, Node*& tail){
+void deleteFirstNode(Node*& head){
     Node* temp = head;
     head = head->next;
-    tail = tail->next;
     delete temp; // freeup memory for temp manually b/z we allocated memory in heap dynamically.
     return;
 }
@@ -113,8 +129,7 @@ void deleteNode(Node*& head, Node*& tail, int pos){
 
     Node* temp = head;
     if(pos == 1){
-        head = head->next;
-        tail = tail->next;
+        deleteFirstNode(head);
         // free memory.
         delete temp; // destructor is called for this.
     }
@@ -141,22 +156,24 @@ void deleteNode(Node*& head, Node*& tail, int pos){
 int main()
 {
     // create a dynamic memeory node.
-    Node *node1 = new Node(5);
-    Node *head = node1; // head points to first node 
-    Node *tail = node1; // tail points to first node intially.
+    // Node *node1 = new Node(5);
+    // Node *head = node1; // head points to first node 
+    // Node *tail = node1; // tail points to first node intially.
+    Node* head = NULL;
+    Node* tail = NULL;
 
     // insert at head
     // traverse(head);
-    // insertAtHead(head, 30);
+    // insertAtHead(head,tail, 30);
     // traverse(head);
-    // insertAtHead(head, 20);
+    // insertAtHead(head,tial, 20);
     // traverse(head);
 
     // insert at tail
     traverse(head);
-    insertAtTail(tail, 10);
+    insertAtTail(head, tail, 10);
     traverse(head);
-    insertAtTail(tail, 15);
+    insertAtTail(head, tail, 15);
     traverse(head);
 
     // insert at specific postion
@@ -164,11 +181,11 @@ int main()
     traverse(head);
 
     // delete operations.
-    cout << "delete operations" << endl;
-    deleteNode(head, tail, 4);
+    // cout << "delete operations" << endl;
+    // deleteNode(head, tail, 4);
     // deleteFirstNode(head,tail);
     // deleteLastNode(head,tail);
-    traverse(head);
+    // traverse(head);
 
 }
 
