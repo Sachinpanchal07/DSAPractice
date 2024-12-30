@@ -144,13 +144,10 @@ void deleteAtLast(Node*& head, Node*& tail){
     }
     Node* temp = head;
 
-    if(temp->next->next != NULL){
-        temp = temp->next;
-    }
-    tail->prev = NULL;
-    temp->next = tail->next;
-    delete tail;
-    tail = temp;
+    Node* temp = tail;
+    tail = tail->prev;
+    tail->next = NULL;
+    delete temp;
     return;
 }
 
@@ -228,6 +225,5 @@ int main(){
 
     cout << "head at node " << head->data << endl;
     cout << "tail at node " << tail->data << endl;
-
-
+    
 }
