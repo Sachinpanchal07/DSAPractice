@@ -50,7 +50,6 @@ void insertAtTail(Node*& head, Node*& tail, int d){
         tail = newNode;
     }
     return;
-    
 }
 
 // insert at specific postion
@@ -156,7 +155,7 @@ void deleteNode(Node*& head, Node*& tail, int pos){
 int main()
 {
     // create a dynamic memeory node.
-    // Node *node1 = new Node(5);
+    // Node *node1 = new Node(5); // divyan doubt ****************************************************
     // Node *head = node1; // head points to first node 
     // Node *tail = node1; // tail points to first node intially.
     Node* head = NULL;
