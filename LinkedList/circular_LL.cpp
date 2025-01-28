@@ -31,7 +31,6 @@ void insertAtHead(Node*& head, int d){
         temp->next = newNode;
         newNode->next = head;
         head = newNode; // update head to first node.
-        return;
     }
 }
 // insert at last.
@@ -49,7 +48,6 @@ void insertAtLast(Node*& head, int d){
         }
         temp->next = newNode;
         newNode->next = head;
-        return;
     }
 }
 
@@ -75,12 +73,11 @@ void insertAtPostion(Node*& head, int d, int pos){
     }
     // if pos not found and temp reaches to last element.
     if(temp->next == head && count < pos-1){
-        cout << "postion out of range " <<endl; 
+        cout << "postion out of range " << endl; 
         return;
     }
     newNode->next = temp->next;
     temp->next = newNode;
-    return;
 }
 
 //                             ============== deletion ===============
@@ -116,7 +113,8 @@ void deleteAtLast(Node*& head){
     }
     if (head->next == head) {
         delete head;
-        // head = nullptr;
+        head = NULL;
+        return;
     }
     Node* temp = head;
     while(temp->next->next != head){
@@ -124,7 +122,6 @@ void deleteAtLast(Node*& head){
     }
     delete temp->next;
     temp->next = head;
-    return;
 }
 
 // delete at specific postion.
@@ -156,7 +153,18 @@ void deleteAtPostion(Node*& head, int pos){
 }
 
 // traverse 
-
+void traverse(Node*& head){
+    if(head == NULL){
+        cout << "List is empty";
+        return;
+    }
+    Node* temp = head;
+    do{
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    while(temp != head);
+}
 
 
 int main(){

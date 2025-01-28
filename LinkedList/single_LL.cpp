@@ -101,6 +101,15 @@ void traverse(Node*& head)
 
 // delete the first node.
 void deleteFirstNode(Node*& head){
+    if(head == NULL){
+        return;
+    }
+    else if(head->next == NULL){
+        Node* temp = head;
+        head = NULL;
+        delete temp;
+        return;
+    }
     Node* temp = head;
     head = head->next;
     delete temp; // freeup memory for temp manually b/z we allocated memory in heap dynamically.
@@ -109,6 +118,13 @@ void deleteFirstNode(Node*& head){
 
 // delete last node.
 void deleteLastNode(Node*& head, Node*& tail){
+    if(head == tail){
+        Node* temp = head;
+        head = NULL;
+        tail = NULL;
+        delete temp;
+        return;
+    }
     Node* temp = head;
     while(temp->next->next != NULL){
         temp = temp->next;
@@ -121,11 +137,11 @@ void deleteLastNode(Node*& head, Node*& tail){
 
 // delete Node of given postion.
 void deleteNode(Node*& head, Node*& tail, int pos){
-    //  delete first node.
     if(head == NULL){
         return;
     }
 
+    //  delete first node.
     Node* temp = head;
     if(pos == 1){
         deleteFirstNode(head);

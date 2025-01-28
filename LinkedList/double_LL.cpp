@@ -25,7 +25,6 @@ void traverse(Node*& head){
         temp = temp->next;
     }
     cout << endl;
-    return;
 } 
 //                              ================== length of LL =================
 
@@ -57,7 +56,6 @@ void insertAtHead(Node*& head, Node*& tail, int d){
         head->prev = newNode;
         head = newNode;
     }
-    return;
 }
 
 // insert at end.
@@ -73,13 +71,12 @@ void insertAtTail(Node*& head, Node*& tail, int d){
         newNode->prev = tail;
         tail = newNode;
     }
-    return;
 }
 
 // insert at specific postion.
 void insertAtPosition(Node*& head, Node*& tail, int pos, int d){
     int len = length(head);
-    if(pos > len+1 || pos < 1){
+    if(pos > len + 1 || pos < 1){
         cout << "enter a valid position to insert " << endl;
         return;
     }
@@ -117,6 +114,14 @@ void deleteAtStart(Node*& head){
         cout << "List is empty cannot delete " << endl;
         return;
     }
+    // if only one element present
+    else if(head->next == NULL){ 
+        Node* temp = head;
+        head = NULL;
+        temp->next = NULL;
+        delete temp;
+        return;
+    }
     else{
         Node* temp = head;
         head = temp->next;
@@ -126,7 +131,6 @@ void deleteAtStart(Node*& head){
         // free memory for temp;
         delete temp;
     }
-    return;
 }
 // delete at last
 void deleteAtLast(Node*& head, Node*& tail){
@@ -137,18 +141,15 @@ void deleteAtLast(Node*& head, Node*& tail){
     }
 
     // if only one element is present in list.
-    if (head == tail) {
+    else if (head == tail) {
         delete head;
         head = tail = NULL;
         return;
     }
-    Node* temp = head;
-
     Node* temp = tail;
     tail = tail->prev;
     tail->next = NULL;
     delete temp;
-    return;
 }
 
 // delete at postion
@@ -184,7 +185,6 @@ void deleteAtPosition(Node*& head, Node*& tail, int pos){
         curr->prev = NULL;
         delete curr;
     }
-    return;
 }
 
 int main(){

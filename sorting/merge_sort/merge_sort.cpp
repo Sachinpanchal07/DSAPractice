@@ -18,7 +18,7 @@ void merge(int *arr, int s, int mid, int e){
         k++;
     }
 
-    // copy the first half of main array into new array
+    // copy the second half of main array into new array
     k = mid + 1;
     for(int i=0; i<l2; i++){
         second[i] = arr[k];
