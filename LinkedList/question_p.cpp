@@ -24,6 +24,23 @@ using namespace std;
 //     if(forward != NULL){
 //         head->next = reverse(forward, k);
 //     }
-//     return p;
+//     return prev;
 // }
 
+// ============================ is LL circular =====================
+
+// bool isCircular(Node* head){
+//     if(head == NULL){
+//         return true;
+//     }
+//     Node* temp = head;
+//     while(temp != NULL && temp != head){
+//         temp = temp->next;
+//     }
+//     if(temp == head){
+//         return true;
+//     }
+//     else{
+//         return false;
+//     }
+// }

@@ -13,5 +13,6 @@ recursoin best qns ---->
 9) Rate in Maze. (not practice till now will do latter in recurion qns)-slightly confusion.
 
 Linked list --------->
-1) Reverse Linked list (linear and recursive approach).
-2) 
+1) Reverse Linked list (linear and recursive approach)
+2) Rererse Linked list with K groups
+3) Is Linked list is circular (two approach itrative, map)
