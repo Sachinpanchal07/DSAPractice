@@ -89,9 +89,8 @@ void deleteAtStart(Node*& head){
         return;
     }
     // if only one node is present in list.
-    if(head->next = head){
+    else if(head->next == head){
         delete head;
-        head->next = NULL;
         return;
     }
 
@@ -141,8 +140,8 @@ void deleteAtPostion(Node*& head, int pos){
         count++;
     }
 
-    if(temp->next == head && count < pos-1){
-        cout << " Postion out of range " << endl;
+    if(temp->next == head || count < pos-1){
+        cout << "Postion out of range " << endl;
         return;
     }
 
@@ -169,4 +168,11 @@ void traverse(Node*& head){
 
 int main(){
     Node* head = NULL;
+    insertAtHead(head,5);
+    insertAtLast(head,10);
+    insertAtPostion(head,15,2);
+    // deleteAtStart(head);
+    // deleteAtLast(head);
+    deleteAtPostion(head,4);
+    traverse(head);
 }

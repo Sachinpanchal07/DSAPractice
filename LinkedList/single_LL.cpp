@@ -20,6 +20,39 @@ public:
     //     }
     // }
 };
+//                          ====================== length of LL ==================
+
+int length(Node*& head){
+    if (head == NULL){
+        return 0;
+    }
+    int count = 1;
+    Node* temp = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+        count++;
+    }
+    cout << "length of list is " << count << endl;
+    return count;
+
+}
+
+//                     ======== mid element of LL ===========
+
+int mid_el(Node*& head){
+    int len = length(head);
+    int mid = len/2 + 1;
+    Node* temp = head;
+    int cnt = 1;
+    while(cnt != mid){
+        temp = temp->next;
+        cnt++;
+    }
+    return temp->data;
+}
+
+
+
 //                           =================== insertion ======================
 // insert at head node
 void insertAtHead(Node*& head, Node*& tail, int d)
@@ -34,7 +67,6 @@ void insertAtHead(Node*& head, Node*& tail, int d)
         newNode -> next = head;
         head = newNode;
     }
-    return;
 }
 
 // insert at tail
@@ -189,11 +221,13 @@ int main()
     insertAtTail(head, tail, 10);
     traverse(head);
     insertAtTail(head, tail, 15);
+    insertAtTail(head, tail, 35);
     traverse(head);
 
     // insert at specific postion
     insertATPosition(head, tail, 3, 12);
     traverse(head);
+    cout << "mid element is " << mid_el(head);
 
     // delete operations.
     // cout << "delete operations" << endl;

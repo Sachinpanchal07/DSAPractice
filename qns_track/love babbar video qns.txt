@@ -11,3 +11,7 @@ recursoin best qns ---->
 7) phone keypad problem.
 8) permutation of string or array.
 9) Rate in Maze. (not practice till now will do latter in recurion qns)-slightly confusion.
+
+Linked list --------->
+1) Reverse Linked list (linear and recursive approach).
+2) 
