@@ -112,3 +112,68 @@ using namespace std;
     }
     temp-next = NULL; // remove cycle here.
 }*/
+
+// =============================== Remove duplicates in Sorted LL ==================
+/*
+Node* removeDuplicate(Node* head){
+    if (head == NULL){
+        return head;
+    }
+    else if(head ->next == NULL){
+        return head;
+    }
+    Node* curr = head;
+    while(curr->next != NULL){
+        if(curr->data == curr->next->data){
+            Node* temp = curr->next;
+            curr->next = curr->next->next;
+            delete temp;
+        }
+        else{
+            curr = curr->next;
+        }
+    }
+    return head;
+}
+*/
+
+// ======================== sort 0's 1's 2's LL ========================
+Node* sort(Node*& head){
+    if(head == NULL){
+        return NULL;
+    }
+    int zeroCount = 0;
+    int oneCount = 0;
+    int twoCount = 0;
+    Node* temp = head;
+    while(temp != NULL){
+        if(temp->data == 0){
+            zeroCount++;
+        }
+        else if(temp->data == 1){
+            oneCount++;
+        }
+        else{
+            twoCount++;
+        }
+        temp = temp->next;
+    }
+    temp = head;
+
+    while(temp != NULL){
+        if(zeroCount != 0){
+            temp->data = 0;
+            zeroCount--;
+        }
+        else if(oneCount != 0){
+            temp->data = 1;
+            oneCount--;
+        }
+        else if(twoCount != 0){
+            temp->data = 2;
+            twoCount--;
+        }
+        temp = temp->next;
+    }
+    return head;
+}

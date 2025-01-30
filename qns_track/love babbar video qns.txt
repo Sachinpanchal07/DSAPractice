@@ -13,6 +13,10 @@ recursoin best qns ---->
 9) Rate in Maze. (not practice till now will do latter in recurion qns)-slightly confusion.
 
 Linked list --------->
+a) split cicular LL in two halfs and make their own heads
+b) Reverse doubly LL.
+
 1) Reverse Linked list (linear and recursive approach)
 2) Rererse Linked list with K groups
 3) Is Linked list is circular (two approach itrative, map)
+4) Detect and remove cycle in LL and also give that node which create cycle in LL. (optimize approach)
