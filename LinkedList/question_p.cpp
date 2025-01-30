@@ -237,6 +237,7 @@ Node* sort(Node*& head){
 
 // ======================= merge two sorted Linked list ===================
 // fuction to solve
+/*
 Node* solve(Node* &first, Node* &second){
     // if only one element in first LL.
     if(first->next == NULL){
@@ -278,4 +279,55 @@ Node* merge(Node* first, Node* second){
     else{
         return solve(second, first);
     }
+}
+*/
+
+// ============================== check palindrome ============================
+
+// find mid funciton
+Node* getMid(Node*& head){
+    Node* slow = head;
+    Node* fast = head;
+    while(fast->next != NULL && fast->next->next != NULL){
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    return slow;
+}
+// reverse the half LL
+Node* reverse(Node* head){
+    Node* curr = head;
+    Node* prev = NULL;
+    Node* forword = NULL;
+    while(curr != NULL){
+        forword = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = forword;
+    }
+    return prev;
+}
+
+bool palindrome(Node* head){
+    if(head == NULL || head->next == NULL){
+        return true;
+    }
+    Node* mid = getMid(head); // get the mid
+
+    Node* newHead = reverse(mid->next); // reverse half LL
+    Node* first = head;
+    Node* second = newHead;
+
+    // compare both halfs
+     while(second != NULL){
+        if(first->data != second->data){
+            reverse(newHead);
+            return false;
+        }
+        first = first->next;
+        second = second->next;
+    }
+    // reverse LL again.
+    reverse(newHead);
+    return true;
 }
