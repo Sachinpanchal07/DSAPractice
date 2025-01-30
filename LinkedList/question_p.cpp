@@ -138,6 +138,7 @@ Node* removeDuplicate(Node* head){
 */
 
 // ======================== sort 0's 1's 2's LL ========================
+/*
 Node* sort(Node*& head){
     if(head == NULL){
         return NULL;
@@ -177,3 +178,57 @@ Node* sort(Node*& head){
     }
     return head;
 }
+*/
+
+// ======================= sort 0s 1s 2s LL without data replacement ===================
+
+// insertAtTail function-> add value in new LL's
+        void insertAtTail( Node* &tail, Node* curr){
+            tail->next = curr;
+            tail = curr;
+        }
+
+    Node* sort(Node* head){
+        // intialize three dummy nodes
+        Node* zeroHead = new Node(-1);
+        Node* zeroTail = zeroHead;
+        Node* oneHead = new Node(-1);
+        Node* oneTail = oneHead;
+        Node* twoHead = new Node(-1);
+        Node* twoTail = twoHead;
+
+        // add values in these three nodes
+        Node* curr = head;
+        while(curr != NULL){
+            int value = curr->data;
+            if(value == 0){
+                insertAtTail(zeroTail,curr );
+            }
+            else if(value == 1){
+                insertAtTail(oneTail, curr );
+            }
+            else if(value == 2) {
+                insertAtTail(twoTail, curr );
+            }
+            curr = curr->next;
+        }
+
+        // merge these LL's
+        if(oneHead->next != NULL){
+            zeroTail->next = oneHead->next;
+        }
+        else{
+            zeroTail->next = twoHead->next;
+        }
+
+        oneTail->next = twoHead->next;
+        twoTail->next = NULL;
+        
+        // delete dummy nodes.
+        head = zeroHead->next;
+        delete zeroHead;
+        delete oneHead;
+        delete twoHead;
+
+        return head;
+    }
