@@ -183,6 +183,7 @@ Node* sort(Node*& head){
 // ======================= sort 0s 1s 2s LL without data replacement ===================
 
 // insertAtTail function-> add value in new LL's
+/*
         void insertAtTail( Node* &tail, Node* curr){
             tail->next = curr;
             tail = curr;
@@ -232,3 +233,49 @@ Node* sort(Node*& head){
 
         return head;
     }
+    */
+
+// ======================= merge two sorted Linked list ===================
+// fuction to solve
+Node* solve(Node* &first, Node* &second){
+    // if only one element in first LL.
+    if(first->next == NULL){
+        first->next = second;
+        return first;
+    }
+
+    Node* curr1 = first;
+    Node* next1 = curr1->next;
+    Node* curr2 = second;
+    Node* next2 = curr2->next;
+
+    while(next1 != NULL && curr2 != NULL){
+        // check first element of second LL and compare with first LL.
+        if(curr1->data <= curr2->data && curr2->data <= next1->data){
+            curr1->next = curr2;
+            next2 = curr2->next;
+            curr2->next = next1;
+            curr1 = curr1->next;
+            curr2 = next2;
+        }
+        else{
+            curr1 = curr1->next;
+            next1 = next1->next;
+            if(next1 == NULL){
+                curr1->next = curr2;
+                return first;
+            }
+        }
+    }
+    return first;
+}
+
+Node* merge(Node* first, Node* second){
+    // we take 'first' LL which has first small element. 
+    if(first->data <= second->data){
+        return solve(first, second);
+    }
+    else{
+        return solve(second, first);
+    }
+}
