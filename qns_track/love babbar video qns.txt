@@ -22,3 +22,5 @@ b) Reverse doubly LL.
 4) Detect and remove cycle in LL and also give that node which create cycle in LL. (optimize approach)
 5) Sort the LL containg 0s, 1s, 2s ( two approachs-> 1)replace data,2) replace pointers )
 6) Merge two sorted Linked list. 
+7) Check palindrome in LL (two approach --> 1) using stack and array. 2) using pointers only )
+8) Add two numbers 

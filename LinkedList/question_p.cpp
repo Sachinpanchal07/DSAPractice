@@ -285,6 +285,7 @@ Node* merge(Node* first, Node* second){
 // ============================== check palindrome ============================
 
 // find mid funciton
+/*
 Node* getMid(Node*& head){
     Node* slow = head;
     Node* fast = head;
@@ -330,4 +331,71 @@ bool palindrome(Node* head){
     // reverse LL again.
     reverse(newHead);
     return true;
+}
+*/
+
+// ============================= Add two numbers in LL =============================
+// reveres LL
+Node* reverse(Node* &head){
+    Node* prev = NULL;
+    Node* curr = head;
+    Node* forword = NULL;
+    while(curr != NULL){
+        forword = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = forword;
+    }
+    return prev;
+}
+
+// make new LL
+void insertAtTail(Node* &head, Node* &tail, int data){
+    Node* node = new Node(data);
+    // if LL empty
+    if(head == NULL){
+        head = node;
+        tail = node;
+        return;
+    }
+    // not empty
+    tail->next = node;
+    tail = node;
+}
+
+// add two LL
+Node* addLinkedLists(Node* first, Node* second){
+    int carry = 0;
+    Node* ansHead = NULL;
+    Node* ansTail = NULL;
+
+    while(first != NULL || second != NULL || carry != 0){
+        int val1 = 0;
+        int val2 = 0;
+        if(first != NULL){
+            val1 = first->data;
+            first = first->next;
+        }
+        if(second != NULL){
+            val2 = second->data;
+            second = second->next;
+        }
+        int sum = carry + val1 + val2;
+        int digit = sum % 10;
+
+        // insert new data in new LL
+        insertAtTail(ansHead, ansTail, digit);
+        carry = sum/10;
+    }
+    return ansHead;
+}
+
+Node* add(Node* first, Node* second){
+    // reverse LLs
+    first = reverse(first);
+    second = reverse(second);
+    // add both LL
+    Node* ans = addLinkedLists(first, second);
+    
+    return reverse(ans);
 }
