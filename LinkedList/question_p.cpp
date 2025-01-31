@@ -452,3 +452,62 @@ Node* clone(Node* head){
     return cloneHead;
 }
 */
+//                        ++++++++++++++ approach 2 ++++++++++++++
+
+    // copy a orginal LL.
+void insertInClone(Node* &head, Node* &tail, int data){
+    Node* node = new Node(data);
+    if(head == NULL){
+        head = node;
+        tail = node;
+    }
+    else{
+        tail->next = node;
+        tail = node;
+    }
+}
+
+Node* clone(Node* head){
+    Node* cloneHead = NULL;
+    Node* cloneTail = NULL;
+    Node* temp = head;
+    // step 1: copy a LL
+    while(temp != NULL){
+        insertInClone(cloneHead, cloneTail, temp->data);
+        temp = temp->next;
+    }
+
+    // step 2: adjust cloneLL node in between original LL nodes
+    Node* originalNode = head;
+    Node* cloneNode = cloneHead;
+    while(originalNode != NULL && cloneNode != NULL){
+        Node* next = originalNode->next;
+        originalNode->next = cloneNode;
+        originalNode = next;
+
+        next = cloneNode->next;
+        cloneNode->next = originalNode;
+        cloneNode = next;
+    }
+
+    // step 3: adjust pointers of clone LL.
+    Node* temp = head;
+    while(temp != NULL){
+        temp->next->random = temp->random ? temp->random->next : temp->random;
+        temp = temp->next->next;
+    }
+
+    // step 4 : revert changes
+    originalNode = head;
+    cloneNode = cloneHead;
+    while(originalNode != NULL){
+        originalNode->next = cloneNode->next;
+        originalNode = originalNode->next;
+        
+        if(originalNode != NULL){
+            cloneNode->next = originalNode->next;
+        }
+        cloneNode = cloneNode->next;
+    }
+    return cloneHead;
+}
