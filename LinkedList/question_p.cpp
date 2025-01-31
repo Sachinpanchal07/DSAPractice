@@ -335,6 +335,7 @@ bool palindrome(Node* head){
 */
 
 // ============================= Add two numbers in LL =============================
+/*
 // reveres LL
 Node* reverse(Node* &head){
     Node* prev = NULL;
@@ -399,3 +400,55 @@ Node* add(Node* first, Node* second){
     
     return reverse(ans);
 }
+*/
+
+// ======================== clone a LL with next and random pointers =============================
+//                               +++++++++++++++ approach 1 +++++++++++++++++
+// we have given a LL with next and random pointers then we create a exact clone of that.
+
+/*
+// copy data in clone
+void insertInClone(Node* &head, Node*& tail, int data){
+    Node* node = new Node(data);
+    if(head == NULL){
+        head = node;
+        tail = node;
+    }
+    else{
+        tail->next = node;
+        tail = node;
+    }
+    return;
+}
+
+Node* clone(Node* head){
+    Node* temp = head;
+    Node* cloneHead = NULL;
+    Node* cloneTail = NULL;
+    // copy original LL 
+    while(temp != NULL){
+        insertInClone(cloneHead, cloneTail, temp->data);
+        temp = temp->next;
+    }
+
+    // store mapping in map.
+    map<Node*, Node*> oldToNewNode;
+    Node* originalNode = head;
+    Node* cloneNode = cloneHead;
+    while(originalNode != NULL){
+        oldToNewNode[originalNode] = cloneNode;
+        originalNode = originalNode->next;
+        cloneNode = cloneNode->next;
+    }
+
+    // add the random pointer.
+    cloneNode = cloneHead;
+    originalNode = head;
+    while(originalNode != NULL){
+        cloneNode->random = oldToNewNode[origianlNode->random];
+        cloneNode = cloneNode->next;
+        origianlNode = originalNode->next;
+    }
+    return cloneHead;
+}
+*/
