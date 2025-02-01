@@ -5,6 +5,8 @@
         "vector": "cpp",
         "utility": "cpp",
         "iterator": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "ios": "cpp",
+        "xiosbase": "cpp"
     }
 }

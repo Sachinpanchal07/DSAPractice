@@ -15,6 +15,7 @@ recursoin best qns ---->
 Linked list --------->
 a) split cicular LL in two halfs and make their own heads
 b) Reverse doubly LL.
+c) why merger sort in prefer in LL and quick sort in arrays.
 
 1) Reverse Linked list (linear and recursive approach)
 2) Rererse Linked list with K groups

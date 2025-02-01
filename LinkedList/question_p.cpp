@@ -453,7 +453,7 @@ Node* clone(Node* head){
 }
 */
 //                        ++++++++++++++ approach 2 ++++++++++++++
-
+/*
     // copy a orginal LL.
 void insertInClone(Node* &head, Node* &tail, int data){
     Node* node = new Node(data);
@@ -510,4 +510,82 @@ Node* clone(Node* head){
         cloneNode = cloneNode->next;
     }
     return cloneHead;
+}
+*/
+
+// ============================== merge sort ============================
+
+// getMid function
+Node* getMid(Node* head){
+    if(head == NULL){
+        return head;
+    }
+    Node* slow = head;
+    Node* fast = head;
+    while(fast->next != NULL && fast->next->next != NULL){
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    return slow;
+}
+
+// merge function
+Node* merge(Node* left, Node* right){
+    if(left == NULL){ // why we put these two if conditions
+        return right;
+    }
+    if(right == NULL){
+        return left;
+    }
+
+    Node* ans = new Node(-1);
+    Node* temp = ans;
+    while(left != NULL && right != NULL){
+        if(left->data < right->data){
+            temp->next = left;
+            left = left->next;
+            temp = temp->next;
+        }
+        else{
+            temp->next = right;
+            right = right->next;
+            temp = temp->next;
+        }
+    }
+
+    while(left != NULL){
+        temp->next = left;
+        left = left->next;
+        temp = temp->next;
+    }
+
+    while(right != NULL){
+        temp->next = right;
+        right = right->next;
+        temp = temp->next;
+    }
+
+    temp = ans;
+    ans = ans->next;
+    delete temp;
+    return ans;
+}
+
+Node* mergeSort(Node* head){
+    if(head == NULL || head->next == NULL){
+        return head;
+    }
+
+    Node* left = NULL;
+    Node* right = NULL;
+    Node* mid = getMid(head);
+
+    left = head;
+    right = mid->next;
+    mid->next = NULL;
+
+    left = mergeSort(left);
+    right = mergeSort(right);
+ 
+    return merge(left, right);
 }
