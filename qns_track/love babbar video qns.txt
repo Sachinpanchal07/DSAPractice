@@ -38,3 +38,4 @@ a) stack implementation using linked list.
 2) Revrese a string or array using stack.
 3) Remove mid element from stack.
 4) Is valid parenthesis.
+5) add element in bottom.

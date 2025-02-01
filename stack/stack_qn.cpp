@@ -142,6 +142,44 @@ stack<int> addInBottom(stack<int>s, int num){
     return s;
 }
 */
+
+// ===================================== reverse the stack ================================
+/*
+// addInBottom function
+void addInBottom(stack<int>& s, int num){
+    if(s.empty()){
+        s.push(num);
+        return;
+    }
+    int save = s.top();
+    s.pop();
+    // recursive call to add at bottom.
+    addInBottom(s, num);
+
+    s.push(save);
+}
+
+// solve funtion
+void solve(stack<int>& s){
+    if(s.empty()){
+        return;
+    }
+    int top = s.top();
+    s.pop();
+    // recursive call
+    solve(s);
+
+    // add element in bottom
+    addInBottom(s, top);
+}
+
+stack<int> reverse(stack<int> s){
+    solve(s);
+    return s;
+
+}
+*/
+
 int main(){
    
 }
