@@ -182,6 +182,7 @@ stack<int> reverse(stack<int> s){
 
 // ============================== sort the stack ==============================
 
+/*
 // sortedInserted function
 void sortedInsert(stack<int>&s, int num){
     if(s.empty() || (s.top() < num)){
@@ -212,6 +213,37 @@ void solve(stack<int>&s){
 stack<int> sort(stack<int> s){
     solve(s);
     return s;
+}
+*/
+
+// ================================== redundent bracket ===============================
+
+bool checkRedundentBracket(stack<char>& s, string str){
+    for(int i=0; i<str.length(); i++){
+        char ch = str[i];
+        // push operator and opening bracket in stack.
+        if(ch == '+' || ch=='-' || ch=='/' || ch=='*' || ch=='('){
+            s.push(ch);
+        }
+        // if closing bracket then compare.
+        else{
+            bool redundent = true;
+            // loop until we found opening bracket.
+            while(s.top() != '('){
+                char top = s.top();
+                if (top == '+' || top=='-' || top=='/' || top=='*'){
+                    redundent = false;
+                }
+                s.pop();
+            }
+            s.pop();
+
+            if(redundent == true){
+                return true;
+            }
+        }
+    }
+    return false;
 }
 int main(){
    

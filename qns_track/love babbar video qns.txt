@@ -40,3 +40,4 @@ a) stack implementation using linked list.
 4) Is valid parenthesis.
 5) add element in bottom.
 6) Reverse stack.
+7) Sort stack.
