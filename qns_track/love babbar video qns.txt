@@ -36,3 +36,5 @@ a) stack implementation using linked list.
 
 1) Stack implementation using array.
 2) Revrese a string or array using stack.
+3) Remove mid element from stack.
+4) Is valid parenthesis.

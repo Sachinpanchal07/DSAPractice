@@ -66,6 +66,7 @@ class Stack{
 
 // =============================== delete mid element from stack ==========================
 // solve function
+/*
 void solve(stack<int>s, int size, int count){
     if(count == size/2){
         s.pop();
@@ -84,7 +85,40 @@ void deleteMid(stack<int>s, int size){
     int count = 0;
     solve(stack<int>s, size, count);
 }
+*/
 
+// ======================= valid parenthesis ====================
+
+bool isvalidparenthesis(stack<char>s, chart str){
+    for(int i=0; i<str.length(); i++){
+        char ch = str[i];
+        // if opening bracekt then add to stack
+        if(ch == "(" || ch == "{" || ch == "["){
+            stack.push(ch);
+        }
+        // if closing bracket then compare with opening bracket in stack.
+        else{
+            if(!s.empty()){
+                char top = stack.top();
+                if(top == "(" && ch == ")" || top == "{" && ch == "}" || top == "[" && ch == "]"){
+                    s.pop();
+                }
+                else{
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+        if(s.empty()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
 
 int main(){
    
