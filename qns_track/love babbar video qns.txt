@@ -13,9 +13,12 @@ recursoin best qns ---->
 9) Rate in Maze. (not practice till now will do latter in recurion qns)-slightly confusion.
 
 Linked list --------->
+
 a) split cicular LL in two halfs and make their own heads
 b) Reverse doubly LL.
 c) why merger sort in prefer in LL and quick sort in arrays.
+d) flattern Linked list.
+e) dsa 450 do Linked list qnestion (enough h).
 
 1) Reverse Linked list (linear and recursive approach)
 2) Rererse Linked list with K groups
@@ -26,3 +29,9 @@ c) why merger sort in prefer in LL and quick sort in arrays.
 7) Check palindrome in LL (two approach --> 1) using stack and array. 2) using pointers only )
 8) Add two numbers 
 9) Merge Sort in Linked list.
+
+Stack--------------->
+
+a) stack implementation using linked list.
+
+1) stack implementation using array
