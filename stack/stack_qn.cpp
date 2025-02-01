@@ -88,7 +88,7 @@ void deleteMid(stack<int>s, int size){
 */
 
 // ======================= valid parenthesis ====================
-
+/*
 bool isvalidparenthesis(stack<char>s, chart str){
     for(int i=0; i<str.length(); i++){
         char ch = str[i];
@@ -119,7 +119,29 @@ bool isvalidparenthesis(stack<char>s, chart str){
         }
     }
 }
+*/
 
+// ================================= add element in bottom ===============================
+/*
+// solve function
+void solve(stack<int>s, int num){
+    // base case
+    if(s.empty()){
+        s.push(num);
+        return;
+    }
+    int save = s.top();
+    s.pop();
+    // recursive call
+    solve(s, num);
+    s.push(save);
+    
+}
+stack<int> addInBottom(stack<int>s, int num){
+    solve(s, num);
+    return s;
+}
+*/
 int main(){
    
 }
