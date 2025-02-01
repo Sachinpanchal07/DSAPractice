@@ -25,3 +25,4 @@ c) why merger sort in prefer in LL and quick sort in arrays.
 6) Merge two sorted Linked list. 
 7) Check palindrome in LL (two approach --> 1) using stack and array. 2) using pointers only )
 8) Add two numbers 
+9) Merge Sort in Linked list.
