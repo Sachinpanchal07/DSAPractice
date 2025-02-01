@@ -3,6 +3,7 @@
 using namespace std;
 
 // ================================ two stack using single array ===========================
+/*
 class Stack{
     private:
     int *arr;
@@ -61,21 +62,30 @@ class Stack{
         }
     }
 };
+*/
+
+// =============================== delete mid element from stack ==========================
+// solve function
+void solve(stack<int>s, int size, int count){
+    if(count == size/2){
+        s.pop();
+        return;
+    }
+    int save = s.top();
+    s.pop();
+
+    // recursize call
+    solve(s, size, count++);
+
+    s.push(save);
+}
+
+void deleteMid(stack<int>s, int size){
+    int count = 0;
+    solve(stack<int>s, size, count);
+}
 
 
 int main(){
-   Stack s(4);
-   s.push1(4);
-   s.push1(3);
-   s.push1(2);
-//    s.push1(1);
-   s.push2(4);
-   cout << s.pop2() << endl;
-   cout << s.pop1()  << endl;
-   cout << s.pop1()  << endl;
-   cout << s.pop1()  << endl;
-   cout << s.pop1()  << endl;
-   cout << s.pop1()  << endl;
-   s.push2(4);
-   cout << s.pop2() << endl;
+   
 }
