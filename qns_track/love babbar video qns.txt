@@ -39,3 +39,4 @@ a) stack implementation using linked list.
 3) Remove mid element from stack.
 4) Is valid parenthesis.
 5) add element in bottom.
+6) Reverse stack.

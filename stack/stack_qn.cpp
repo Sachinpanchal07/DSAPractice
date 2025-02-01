@@ -180,6 +180,39 @@ stack<int> reverse(stack<int> s){
 }
 */
 
+// ============================== sort the stack ==============================
+
+// sortedInserted function
+void sortedInsert(stack<int>&s, int num){
+    if(s.empty() || (s.top() < num)){
+        s.push(num);
+        return;
+    }
+
+    int save = s.top();
+    s.pop();
+
+    sortedInsert(s, num);
+
+    s.push(save);
+}
+
+// solve funciton
+void solve(stack<int>&s){
+    if(s.empty()){
+        return;
+    }
+    int top = s.top();
+    s.pop();
+    solve(s);
+
+    sortedInsert(s, top);
+}
+
+stack<int> sort(stack<int> s){
+    solve(s);
+    return s;
+}
 int main(){
    
 }
