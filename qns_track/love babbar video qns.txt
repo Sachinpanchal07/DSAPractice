@@ -44,3 +44,5 @@ a) stack implementation using linked list.
 7) Maintain two stacks using one array.
 8) Sort stack.
 9) redundant brackets.
+10) Convert in valid parenthesis with min cost.
+

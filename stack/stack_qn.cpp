@@ -248,7 +248,7 @@ bool checkRedundentBracket(stack<char>& s, string str){
 */
 
 // ==================== Min cost to convert a string in valid parenthesis expression ===================
-
+/*
 int MinCost(string str){
     if(str.length()%2 == 1){
         return -1;
@@ -284,5 +284,23 @@ int MinCost(string str){
     }
 
     int ans = (a+1)/2 + (b+1)/2;
+    return ans;
+}
+*/
+
+// ===================== find next first smaller element =================
+
+vector<int> nextSmaller(int arr[], int n){
+    stack<int>s;
+    s.push(-1);
+    vector<int>ans(n);
+    for(int i=n-1; i>=0; i--){
+        int a = arr[i];
+        while(!s.empty() && s.top() >= a){
+            s.pop();
+        }
+        ans[i] = s.top();
+        s.push(a);
+    }
     return ans;
 }
