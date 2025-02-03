@@ -514,7 +514,7 @@ Node* clone(Node* head){
 */
 
 // ============================== merge sort ============================
-
+/*
 // getMid function
 Node* getMid(Node* head){
     if(head == NULL){
@@ -589,3 +589,29 @@ Node* mergeSort(Node* head){
  
     return merge(left, right);
 }
+*/
+
+// reverse LL using itrative
+// reverse k groups
+// mid of LL
+// is LL circular map approch
+// is LL circular itrative approch
+// cycle detect using map
+// cycle detect using slow and high.(floyed cycle detection algo.)
+bool isCycle(Node* head){
+    if(head == NULL){
+        return false;
+    }
+    Node* slow = head;
+    Node* fast = head;
+
+    while(fast ->next != NULL && fast->next->next != NULL){
+        fast = fast->next->next;
+        slow = slow->next
+        if(slow == fast){
+            return true;
+        }
+    }
+    return false;
+}
+

@@ -159,7 +159,7 @@ void addInBottom(stack<int>& s, int num){
     s.push(save);
 }
 
-// solve funtion
+// solve function
 void solve(stack<int>& s){
     if(s.empty()){
         return;
@@ -217,7 +217,7 @@ stack<int> sort(stack<int> s){
 */
 
 // ================================== redundent bracket ===============================
-
+/*
 bool checkRedundentBracket(stack<char>& s, string str){
     for(int i=0; i<str.length(); i++){
         char ch = str[i];
@@ -245,6 +245,44 @@ bool checkRedundentBracket(stack<char>& s, string str){
     }
     return false;
 }
-int main(){
-   
+*/
+
+// ==================== Min cost to convert a string in valid parenthesis expression ===================
+
+int MinCost(string str){
+    if(str.length()%2 == 1){
+        return -1;
+    }
+
+    stack<char>s;
+    for(int i=0; i<str.length(); i++){
+        char ch = str[i];
+        // if ch is opening bracket then push, if closing then compare from stack's top.
+        if(ch == '{'){
+            s.push(ch);
+        }
+        else{
+            if(!s.empty() && s.top() == '{'){
+                s.pop();
+            }
+            else{
+                s.push(ch);
+            }
+        }
+    }
+    // so stack contain invalid parenthesis now.
+    int a = 0; 
+    int b = 0;
+    while(!s.empty()){
+        if(s.top() == '{'){
+            a++;
+        }
+        else if(s.top() == '}'){
+            b++;
+        }
+        s.pop();
+    }
+
+    int ans = (a+1)/2 + (b+1)/2;
+    return ans;
 }

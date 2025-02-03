@@ -1,6 +1,6 @@
-love babbar video qns
+                                                        Love Babbar Videos Questions
 
-recursoin best qns ---->
+recursoin  qns ---->
 
 1) factorial
 2) counting 
@@ -10,7 +10,7 @@ recursoin best qns ---->
 6) subset of set.
 7) phone keypad problem.
 8) permutation of string or array.
-9) Rate in Maze. (not practice till now will do latter in recurion qns)-slightly confusion.
+9) Rat in Maze. (not practice till now will do latter in recurion qns)-slightly confusion.
 
 Linked list --------->
 
@@ -20,15 +20,16 @@ c) why merger sort in prefer in LL and quick sort in arrays.
 d) flattern Linked list.
 e) dsa 450 do Linked list qnestion (enough h).
 
-1) Reverse Linked list (linear and recursive approach)
-2) Rererse Linked list with K groups
-3) Is Linked list is circular (two approach itrative, map)
-4) Detect and remove cycle in LL and also give that node which create cycle in LL. (optimize approach)
-5) Sort the LL containg 0s, 1s, 2s ( two approachs-> 1)replace data,2) replace pointers )
-6) Merge two sorted Linked list. 
-7) Check palindrome in LL (two approach --> 1) using stack and array. 2) using pointers only )
-8) Add two numbers 
-9) Merge Sort in Linked list.
+1) find mid of LL.
+2) Reverse Linked list (linear and recursive approach)
+3) Rererse Linked list with K groups
+4) Is Linked list is circular (two approach itrative, map)
+5) Detect and remove cycle in LL and also give that node which create cycle in LL. (optimize approach)
+6) Sort the LL containg 0s, 1s, 2s ( two approachs-> 1)replace data,2) replace pointers )
+7) Merge two sorted Linked list. 
+8) Check palindrome in LL (two approach --> 1) using stack and array. 2) using pointers only )
+9) Add two numbers 
+10) Merge Sort in Linked list.
 
 Stack--------------->
 
@@ -40,4 +41,6 @@ a) stack implementation using linked list.
 4) Is valid parenthesis.
 5) add element in bottom.
 6) Reverse stack.
-7) Sort stack.
+7) Maintain two stacks using one array.
+8) Sort stack.
+9) redundant brackets.
