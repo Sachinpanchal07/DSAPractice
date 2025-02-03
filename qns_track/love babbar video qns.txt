@@ -45,4 +45,5 @@ a) stack implementation using linked list.
 8) Sort stack.
 9) redundant brackets.
 10) Convert in valid parenthesis with min cost.
-
+11) Find next first smaller element.
+12) calculate Max area of rectangle in give array (hard)

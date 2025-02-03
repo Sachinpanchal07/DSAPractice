@@ -288,8 +288,8 @@ int MinCost(string str){
 }
 */
 
-// ===================== find next first smaller element =================
-
+// =================================== find next first smaller element ==============================
+/*
 vector<int> nextSmaller(int arr[], int n){
     stack<int>s;
     s.push(-1);
@@ -303,4 +303,63 @@ vector<int> nextSmaller(int arr[], int n){
         s.push(a);
     }
     return ans;
+}
+*/
+
+// =========================== calculate area of maximum rectangle ================================
+
+// function to calculate indexs of next first smaller element.
+vector<int> nextSmallerElements(int arr[], int n){
+    vector<int>ans(n);
+    stack<int>s; 
+    s.push(-1);
+    for(int i=n-1; i>=0; i--){
+        int ch = arr[i];
+        while((s.top() != -1) && arr[s.top] >= ch){
+            s.pop();
+        }
+        ans[i] = s.top();
+        s.push(i);
+    }
+    return ans;
+}
+
+// function to calculate index of prev first smaller elment.
+vector<int> prevSmallerElements(int arr[], int n){
+    vector<int>ans(n);
+    stack<int>s;
+    s.push(-1);
+    for(int i=0; i<n; i++){
+        int ch = arr[i];
+        while((s.top()!=-1) && (arr[s.top()] >= ch)){
+            s.pop();
+        }
+        ans[i] = s.top();
+        s.push(i);
+    }
+    return ans;
+}
+
+int calculateMaxArea(vector<int>& heights){
+    int n = heights.size();
+    // contain first next minimum elements indexes
+    vector<int>next(n);
+    next = nextSmallerElements(heights, n);
+
+    // contain first prev minimum elements indexes
+    vector<int>prev(n);
+    prev = prevSmallerElements(heights, n);
+
+    int maxValue = INT_MIN;
+    for(int i=0; i<n; i++){
+        int length = heights[i];
+        if(next[i] == -1){
+            next[i] = n;
+        }
+        int breath = next[i] - prev[i] - 1;
+
+        int area = length * breath;
+        maxValue = max(area, maxValue);
+    }
+    return maxValue;
 }
