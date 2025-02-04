@@ -366,7 +366,7 @@ int calculateMaxArea(vector<int>& heights){
 */
 
 // ================================= Celibrity Problem =============================
-
+/*
 // function knows();
 bool knows(vector<vector<int>>& M,int a, int b, int n){
     if(M[a][b] == 1){
@@ -435,3 +435,83 @@ int celibrity(vector<vector<int>>& M, int n){
         return -1;
     }
 }
+*/
+
+// ========================= max rectanle in binary matrix with all 1's ============================
+/*
+// function to calculate indexs of next first smaller element.
+vector<int> nextSmallerElements(int arr[], int n){
+    vector<int>ans(n);
+    stack<int>s; 
+    s.push(-1);
+    for(int i=n-1; i>=0; i--){
+        int ch = arr[i];
+        while((s.top() != -1) && arr[s.top()] >= ch){
+            s.pop();
+        }
+        ans[i] = s.top();
+        s.push(i);
+    }
+    return ans;
+}
+
+// function to calculate index of prev first smaller elment.
+vector<int> prevSmallerElements(int arr[], int n){
+    vector<int>ans(n);
+    stack<int>s;
+    s.push(-1);
+    for(int i=0; i<n; i++){
+        int ch = arr[i];
+        while((s.top()!=-1) && (arr[s.top()] >= ch)){
+            s.pop();
+        }
+        ans[i] = s.top();
+        s.push(i);
+    }
+    return ans;
+}
+
+// function calculare max area of rectanle.
+int calculateMaxArea(vector<int>& heights){
+    int n = heights.size();
+    // contain first next minimum elements indexes
+    vector<int>next(n);
+    next = nextSmallerElements(heights, n);
+
+    // contain first prev minimum elements indexes
+    vector<int>prev(n);
+    prev = prevSmallerElements(heights, n);
+
+    int maxValue = INT_MIN;
+    for(int i=0; i<n; i++){
+        int length = heights[i];
+        if(next[i] == -1){
+            next[i] = n;
+        }
+        int breadth = next[i] - prev[i] - 1;
+
+        int area = length * breadth;
+        maxValue = max(area, maxValue);
+    }
+    return maxValue;
+}
+
+int maxArea(vector<vector<int>> M, int n, int m){
+    int area = calculateMaxArea(M[0]);
+
+    for(int i=1; i<n; i++){
+        for(int j=0; j<m; j++){
+            if(M[i][j] != 0){
+                M[i][j] = M[i-1][j] + M[i][j];
+            }
+            else{
+                M[i][j] = 0;
+            }
+        }
+        int newArea = calculateMaxArea(M[i]);
+        area = max(area, newArea);
+    }
+    return area;
+}
+*/
+
