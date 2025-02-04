@@ -307,7 +307,7 @@ vector<int> nextSmaller(int arr[], int n){
 */
 
 // =========================== calculate area of maximum rectangle ================================
-
+/*
 // function to calculate indexs of next first smaller element.
 vector<int> nextSmallerElements(int arr[], int n){
     vector<int>ans(n);
@@ -362,4 +362,76 @@ int calculateMaxArea(vector<int>& heights){
         maxValue = max(area, maxValue);
     }
     return maxValue;
+}
+*/
+
+// ================================= Celibrity Problem =============================
+
+// function knows();
+bool knows(vector<vector<int>>& M,int a, int b, int n){
+    if(M[a][b] == 1){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+int celibrity(vector<vector<int>>& M, int n){
+    // step1 : add all elements in stack.
+    stack<int>s;
+    for(int i=0; i<n; i++){
+        s.push(i);
+    }
+
+    // step2 : check for upper two elements 
+    while(s.size() > 1){
+        int a = s.top();
+        s.pop();
+
+        int b = s.top();
+        s.pop();
+
+        if(knows(M,a,b,n)){
+            s.push(b);
+        }
+        else if(knows(M,b,a,n)){
+            s.push(a);
+        }
+    }
+
+    // if stack is empty.
+    if(!s.empty()){ 
+        return -1;
+    }
+
+    // step 3 : know only one element is left in stack, verify it.
+
+    // check for row.
+    bool rowCheck = true;
+    int ans = s.top();
+    for(int i=0; i<n; i++){
+        if(M[ans][i] == 1){
+            rowCheck = false;
+        }
+    }
+
+    // check for col.
+    bool colCheck = false;
+    int colCount = 0;
+    for(int i=0; i<n; i++){
+        if(M[i][ans] == 1){
+            colCount++;
+        }
+    }
+
+    if(colCount == n - 1){
+        colCheck = true;
+    }
+
+    if(rowCheck == true && colCheck == true){
+        return ans;
+    }
+    else{
+        return -1;
+    }
 }
