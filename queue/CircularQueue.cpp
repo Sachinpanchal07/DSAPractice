@@ -26,7 +26,7 @@ class Circular_queue{
             rear = 0;
         }
         else if(rear == size-1 && front != 0){
-            rear = 0;
+            rear = 0; // for cyclic nature
         }
         else{
             rear++;
