@@ -51,3 +51,9 @@ a) stack implementation using linked list.
 14) Max area of rectangle in binary matrix with all 1's
 ^15) N stacks in array (will do latter after playlist)
 16) get Min value from stack after certain no. of pops.(approach1 done, approach 2 left)
+
+Queue---------------->
+
+a) queue implementation using Linked list.
+
+1) queue implementation using Linked list.
