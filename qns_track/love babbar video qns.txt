@@ -48,3 +48,6 @@ a) stack implementation using linked list.
 11) Find next first smaller element.
 12) calculate Max area of rectangle in give array (hard)
 13) celebrity problem.
+14) Max area of rectangle in binary matrix with all 1's
+^15) N stacks in array (will do latter after playlist)
+16) get Min value from stack after certain no. of pops.(approach1 done, approach 2 left)
