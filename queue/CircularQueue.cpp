@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
-class Dequeue{
+class Circular_queue{
     public:
     int size;
     int front;
     int rear;
     int *arr;
 
-    Dequeue(){
+    Circular_queue(){
         size = 10000;
         front = -1;
         rear = -1;
@@ -38,7 +38,7 @@ class Dequeue{
 
     int pop(){
         if(front == -1){
-            return false;
+            return -1;
         }
         int ans = arr[front];
         arr[front] = -1;
@@ -56,7 +56,7 @@ class Dequeue{
 };
 
 int main(){
-    Dequeue queue;
+    Circular_queue queue;
     queue.push(5);
     queue.push(10);
     queue.push(15);
