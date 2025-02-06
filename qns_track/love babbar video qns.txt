@@ -58,3 +58,4 @@ a) queue implementation using Linked list.
 
 1) queue implementation using Linked list.
 2) Cicular queue.
+3) dqueue.
