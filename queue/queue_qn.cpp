@@ -26,6 +26,29 @@ queue<int> reverse(queue<int> q){
 }
 */
 
+// =============================== reverse k elements of queue =============================
+queue<int> reverse(queue<int>q, int k){
+    stack<int>s;
+    for(int i=0; i<k; i++){
+        int el = q.front();
+        q.pop();
+        s.push(el);
+    }
+
+    while(!s.empty()){
+        int el = s.top();
+        s.pop();
+        q.push(el);
+    }
+
+    int t = q.size()-k;
+    while(t--){
+        int el = q.front();
+        q.pop();
+        q.push(el);
+    }
+    return q;
+}
 int main(){
 
 }
