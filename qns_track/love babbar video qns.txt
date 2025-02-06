@@ -60,4 +60,5 @@ a) queue implementation using Linked list.
 2) Cicular queue.
 3) dqueue.
 4) Rverse queue.
-5)
+^5) first negative integer in every window of size k queue question solution (samjh nahi aya)
+6) reverse k elements of queue
