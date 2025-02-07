@@ -62,3 +62,4 @@ a) queue implementation using Linked list.
 4) Rverse queue.
 ^5) first negative integer in every window of size k queue question solution (samjh nahi aya)
 6) reverse k elements of queue
+7) first non-repeating character in stream (doubt)

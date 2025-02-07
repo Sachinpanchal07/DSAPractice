@@ -52,6 +52,7 @@ queue<int> reverse(queue<int>q, int k){
 }
 */
 // ============================ first non-repeating character in stream ===================
+/*
 vector<int> repear(string s){
     map<char, int>m;
     queue<char>q;
@@ -75,6 +76,31 @@ vector<int> repear(string s){
     }
     return v;
 }
+*/
+
+// ================================== petrol pump question ====================================
+/*
+// d = distance, p = petro.
+int circularTour(vector<int>p, vector<int>d){
+    int start = 0;
+    int balance = 0;
+    int defficiency = 0;
+    for(int i=0; i<p.size(); i++){
+        balance += p[i] - d[i];
+        if(balance < 0){
+            defficiency += balance;
+            start = i + 1;
+            balance = 0;
+        }
+    }
+    if(balance + defficiency >= 0){
+        return start;
+    }
+    else{
+        return -1;
+    }
+}
+*/
 int main(){
 
 }
