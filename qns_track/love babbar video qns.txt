@@ -34,6 +34,7 @@ e) dsa 450 do Linked list qnestion (enough h).
 Stack--------------->
 
 a) stack implementation using linked list.
+b) implement stack using queue.
 
 1) Stack implementation using array.
 2) Revrese a string or array using stack.
@@ -55,11 +56,15 @@ a) stack implementation using linked list.
 Queue---------------->
 
 a) queue implementation using Linked list.
+b) implement queue using stack.
 
-1) queue implementation using Linked list.
-2) Cicular queue.
-3) dqueue.
-4) Rverse queue.
-^5) first negative integer in every window of size k queue question solution (samjh nahi aya)
-6) reverse k elements of queue
-7) first non-repeating character in stream (doubt)
+1) Cicular queue.
+2) dqueue.
+3) Rverse queue.
+4) first negative integer in every window of size k queue question solution (samjh nahi aya), edit--> aa gya samjh.
+5) reverse k elements of queue
+6) first non-repeating character in stream (doubt)
+7) petrol pump question. (three approachs)
+8) interleave the first half of the queue with second half.(two approachs)
+^9) N-queue using the one array.(will do latter after playlist)
+

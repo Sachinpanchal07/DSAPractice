@@ -1,5 +1,7 @@
 #include<iostream>
 #include<stack>
+#include<vector>
+#include<queue>
 
 using namespace std;
 
@@ -101,6 +103,35 @@ int circularTour(vector<int>p, vector<int>d){
     }
 }
 */
+
+// =====================  Find the First Negative Integer in Every Window of Size K =================== 
+vector<int> firstNegativeWindow(int arr[], int k){
+    vector<int> ans;
+    queue<int>q;
+    int len = arr.sizeof()/arr[0].sizeof();
+    int i=0; 
+    int j=0;
+    while(j<len){
+        // element is -ve push in q
+        if(arr[j] < 0){
+            q.push(arr[j]);
+        }
+        // checking if window size reah.
+        if(j-i+1 == k){
+            if(!q.empty()){
+                ans.push_back(q.front());
+            }else{
+                ans.push_back(0);
+            }
+            if(arr[i] < 0 && !q.empty()){
+                q.pop();
+            }
+            i++;
+        }
+        j++;
+    }
+    return ans;
+}
 int main(){
 
 }
