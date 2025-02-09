@@ -79,22 +79,101 @@ void levelOrderTraversal(Node*& root){
     queue<Node*>q;
     q.push(root);
 
+    // print until q not empty.
     while(!q.empty()){
         Node* temp = q.front();
         cout << temp->data << " "<< endl;
         q.pop();
 
-        if(temp->right){
-            q.push(temp->right);
-        }
         if(temp->left){
             q.push(temp->left);
+        }
+        if(temp->right){
+            q.push(temp->right);
         }
     }
 }
 
+// ================================== inorder traversal(LNR) ===========================
+void inorderTraversal(Node* root){
+    if(root == NULL){
+        return;
+    }
+    // call for left subtree
+    inorderTraversal(root->left);
+    // print data
+    cout << root->data << " ";
+    // call for right subtree
+    inorderTraversal(root->right);
+}
+
+// ================================= preorder traversal(NLR) ========================
+void preorderTraversal(Node* root){
+    if(root == NULL){
+        return;
+    }
+    // print data
+    cout << root->data << " ";
+    // call for left subtree
+    preorderTraversal(root->left);
+    // call for right subtree
+    preorderTraversal(root->right);
+}
+
+// ================================ postorder traversal(LRN) =========================
+void postorderTraversal(Node* root){
+    if(root == NULL){
+        return;
+    }
+    // call for left part
+    postorderTraversal(root->left);
+    // call for right part
+    postorderTraversal(root->right);
+    // print data
+    cout << root->data << " ";
+}
+
+// ============================ building tree using levevl order traversal ======================
+void buildTreeLevelOrderTraversal(Node* &root){
+    queue<Node*>q;
+    cout << "enter data for root " << endl;
+    int rootData;
+    cin >> rootData;
+    root = new Node(rootData);
+    q.push(root);
+
+    while(!q.empty()){
+        Node*temp = q.front();
+        q.pop();
+        // left part data
+        cout << "enter data for left of " << temp->data << endl;
+        int leftData;
+        cin>>leftData;
+        if(leftData != -1){
+            temp->left = new Node(leftData);
+            q.push(temp->left);
+        }
+
+        // right part data
+        cout << "enter data for right of " << temp->data << endl;
+        int rightData;
+        cin >> rightData;
+        if(rightData != -1){
+            temp->right = new Node(rightData);
+            q.push(temp->right);
+        }
+    }
+}
 int main(){
-    Node* root = buildTree();
+    // Node* root = buildTree();
+    Node* root;
+    // cout << "starting level order" << endl;
+    buildTreeLevelOrderTraversal(root);
     levelOrderTraversal(root);
+
+    // inorderTraversal(root);
+    // preorderTraversal(root);
+    // postorderTraversal(root);
 }
 // 1 2 4 -1 -1 5 -1 -1 3 6 -1 -1 -1
+// 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
