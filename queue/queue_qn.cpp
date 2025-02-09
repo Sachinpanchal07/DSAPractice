@@ -105,6 +105,7 @@ int circularTour(vector<int>p, vector<int>d){
 */
 
 // =====================  Find the First Negative Integer in Every Window of Size K =================== 
+/*
 vector<int> firstNegativeWindow(int arr[], int k){
     vector<int> ans;
     queue<int>q;
@@ -132,6 +133,53 @@ vector<int> firstNegativeWindow(int arr[], int k){
     }
     return ans;
 }
+*/
+
+
+
+// this is wrong dont consider this...........................................
+/*
+vector<int> sumOfMaxMin(int arr[], int k, int n){
+    vector<int>ans;
+    queue<int>max_q;
+    queue<int>min_q;
+    int i; 
+    max_q.push(arr[0]);
+    min_q.push(arr[0]);
+    int j;
+    while (j<n)
+    {
+        // min queue.
+        if(arr[j] < min_q.front()){
+            min_q.pop();
+            min_q.push(arr[j]);
+
+        }
+        // max queue.
+        if(arr[j] > max_q.front()){
+            max_q.pop();
+            max_q.push(arr[j]);
+        }
+
+        if(j-i+1 == k){
+            int sum;
+            if(!min_q.empty() && !max_q.empty()){
+                sum = max_q.front() + min_q.front();
+                ans.push_back(sum);
+            }
+            if(max_q.front() == arr[i]){
+                max_q.pop();
+            }
+            if(min_q.front() == arr[i]){
+                min_q.pop();
+            }
+            i++;
+        }
+        j++;
+    }
+    return ans;
+}
+*/
 int main(){
 
 }

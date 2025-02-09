@@ -67,4 +67,5 @@ b) implement queue using stack.
 7) petrol pump question. (three approachs)
 8) interleave the first half of the queue with second half.(two approachs)
 ^9) N-queue using the one array.(will do latter after playlist)
+10) sum of max element and min element in k size window and  store that sum in array return array (samjh nahi aya) (dry run this must)
 
