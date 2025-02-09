@@ -43,11 +43,30 @@ void noOfLeafNodes(Node* root, int &count){
     noOfLeafNodes(root->right, count);
 }
 
+// height of tree
+int height(Node* root){
+    if(root==NULL){
+        return 0;
+    }
+    // call for left part
+    int left = height(root->left);
+    // call for right part
+    int right = height(root->right);
+    int ans = max(left, right) + 1;
+    return ans;
+}
+
 int main(){
     Node* root = buildTree();
-    int count=0;
-    noOfLeafNodes(root, count);
-    cout << "No. of leaf nodes are " << count << endl;
+
+    // no. of leaf nodes
+    // int count=0;
+    // noOfLeafNodes(root, count);
+    // cout << "No. of leaf nodes are " << count << endl;
+
+    // height of tree
+   ;
+    cout << "height of tree is " <<   height(root) << endl;
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
 }
