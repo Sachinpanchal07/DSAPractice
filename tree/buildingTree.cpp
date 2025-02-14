@@ -165,11 +165,11 @@ void buildTreeLevelOrderTraversal(Node* &root){
     }
 }
 int main(){
-    // Node* root = buildTree();
-    Node* root;
+    Node* root = buildTree();
+    // Node* root;
     // cout << "staarting level order" << endl;
-    buildTreeLevelOrderTraversal(root);
-    levelOrderTraversal(root);
+    // buildTreeLevelOrderTraversal(root);
+    // levelOrderTraversal(root);
 
     // inorderTraversal(root);
     // preorderTraversal(root);

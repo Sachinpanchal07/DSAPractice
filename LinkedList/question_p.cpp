@@ -58,11 +58,12 @@ using namespace std;
 //         if(visited[temp] == true){
 //             cout << temp->data << " "; // this will tell which node create the cycle.
 //             cout << "cycle is detected";
-//             return false;
+//             return true;
 //         }
-//         temp = temp->next;   
+//         temp = temp->next; 
+            // map[temp] = true;
 //     }
-//     return true;
+//     return false;
 // }
 
 // ======================= detect loop with slow and fast poiners ==================
@@ -598,20 +599,10 @@ Node* mergeSort(Node* head){
 // is LL circular itrative approch
 // cycle detect using map
 // cycle detect using slow and high.(floyed cycle detection algo.)
-bool isCycle(Node* head){
-    if(head == NULL){
-        return false;
-    }
-    Node* slow = head;
-    Node* fast = head;
+// which node create cycle.
+// remove cycle.
+// remove dubplicate in sorted and unsorted LL.
+// sort 0,1,2 in asscending order (both approaches).
+//
 
-    while(fast ->next != NULL && fast->next->next != NULL){
-        fast = fast->next->next;
-        slow = slow->next
-        if(slow == fast){
-            return true;
-        }
-    }
-    return false;
-}
 

@@ -31,7 +31,7 @@ Node* buildTree(){
     return newNode;
 }
 
-// ============================== No. of leaf nodes in treee ==============================
+// ============================== No. of leaf nodes in tree ==============================
 void noOfLeafNodes(Node* root, int &count){
     if(root == NULL){
         return;
@@ -43,7 +43,7 @@ void noOfLeafNodes(Node* root, int &count){
     noOfLeafNodes(root->right, count);
 }
 
-// height of tree
+// =============================== height of tree =================================
 int height(Node* root){
     if(root==NULL){
         return 0;
