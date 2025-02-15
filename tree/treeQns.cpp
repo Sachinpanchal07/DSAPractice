@@ -60,12 +60,11 @@ int main(){
     Node* root = buildTree();
 
     // no. of leaf nodes
-    // int count=0;
-    // noOfLeafNodes(root, count);
-    // cout << "No. of leaf nodes are " << count << endl;
+    int count=0;
+    noOfLeafNodes(root, count);
+    cout << "No. of leaf nodes are " << count << endl;
 
-    // height of tree
-   ;
+    // height of tree;
     // cout << "height of tree is " <<   height(root) << endl;
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 

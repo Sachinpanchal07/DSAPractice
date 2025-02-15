@@ -72,4 +72,5 @@ b) implement queue using stack.
 Tree------------------>
 1) No. of leaf nodes in tree
 2) height of tree
-3) diameter of tree(two approaches)
+^ 3) diameter of tree(two approaches)(samjh nahi aya)
+4)
