@@ -56,16 +56,33 @@ int height(Node* root){
     return ans;
 }
 
+// =================================== diameter of tree =============================
+// int diameter(Node* root){
+//     if (root == NULL){
+//         return 0;
+//     }
+//     int op1 = diameter(root->left);
+//     int op2 = diameter(root->right);
+//     int op3 = height(root->left) + height(root->right) + 1;
+
+//     int ans = max(op1, max(op2, op3));
+//     return ans;
+// }
+
+
 int main(){
     Node* root = buildTree();
 
     // no. of leaf nodes
-    int count=0;
-    noOfLeafNodes(root, count);
-    cout << "No. of leaf nodes are " << count << endl;
+    // int count=0;
+    // noOfLeafNodes(root, count);
+    // cout << "No. of leaf nodes are " << count << endl;
 
-    // height of tree;
+    // height of tree
     // cout << "height of tree is " <<   height(root) << endl;
+
+    // diameter of tree
+    cout << "diameter of tree is " << diameter(root);
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
 }
