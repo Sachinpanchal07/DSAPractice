@@ -1,4 +1,5 @@
 #include<iostream>
+#include<utility>
 using namespace std;
 
 class Node {
@@ -57,17 +58,45 @@ int height(Node* root){
 }
 
 // =================================== diameter of tree =============================
-// int diameter(Node* root){
-//     if (root == NULL){
-//         return 0;
-//     }
-//     int op1 = diameter(root->left);
-//     int op2 = diameter(root->right);
-//     int op3 = height(root->left) + height(root->right) + 1;
+                                // ======== approach 1 =======
+/*
+int diameter(Node* root){
+    if (root == NULL){
+        return 0;
+    }
+    int op1 = diameter(root->left);
+    int op2 = diameter(root->right);
+    int op3 = height(root->left) + height(root->right) + 1;
 
-//     int ans = max(op1, max(op2, op3));
-//     return ans;
-// }
+    int ans = max(op1, max(op2, op3));
+    return ans;
+}
+*/
+
+                                // ======== approach 2 =======
+
+pair<int,int> diameter(Node* root){
+    if(root == NULL){
+        pair<int, int> p = make_pair(0,0); // make pair, first is diameter second is height
+        return p;
+    }
+
+    // recursion call for left and right part.
+    pair<int,int> left = diameter(root->left);
+    pair<int,int> right = diameter(root->right);
+
+    // calculation of all three posiblities.
+    int op1 = left.first;
+    int op2 = right.first;
+    int op3 = left.second + right.second + 1;
+
+    int d = max(op1, max(op2, op3));
+    int h = max(left.second, right.second) + 1;
+
+    pair<int,int> ans = make_pair(d,h);
+    return ans;
+}                               
+
 
 
 int main(){
@@ -82,7 +111,12 @@ int main(){
     // cout << "height of tree is " <<   height(root) << endl;
 
     // diameter of tree
-    cout << "diameter of tree is " << diameter(root);
+    // cout << "diameter of tree is " << diameter(root); // approch1
+
+    // diameter of tree
+    cout << diameter(root).first << endl;
+
+
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
 }
