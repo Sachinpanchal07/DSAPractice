@@ -142,12 +142,31 @@ bool isBalanced(Node* root){
 
                         // ========== approch 2 ============
 
+pair<bool,int> isBalanced(Node* root){
+    if(root == NULL){
+        pair<bool,int> p = make_pair(true,0);
+        return p;
+    }
 
+    // return pair of t/f , height in every recursion call
+    pair<bool,int> left = isBalanced(root->left);
+    pair<bool,int> right = isBalanced(root->right);
 
+    bool leftAns = left.first;
+    bool rightAns = right.first;
+    bool diff = abs(left.second - right.second) <= 1;
 
+    pair<bool,int> ans; // make a new pair for return to above node including t/f & height of that node.
+    if(leftAns && rightAns && diff){
+        ans.first = true;
+    }
+    else{
+        ans.first = false;
+    }
 
-
-
+    ans.second = max(left.second, right.second) + 1;
+    return ans;
+}
 
 
 int main(){
@@ -168,7 +187,7 @@ int main(){
     // cout << diameter(root).first << endl;
 
     // is tree balanced
-    cout << isBalanced(root) << endl;
+    cout << isBalanced(root).first << endl;
 
 
 
