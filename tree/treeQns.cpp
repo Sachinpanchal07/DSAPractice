@@ -74,7 +74,7 @@ int diameter(Node* root){
 */
 
                                 // ======== approach 2 =======
-
+/*
 pair<int,int> diameter(Node* root){
     if(root == NULL){
         pair<int, int> p = make_pair(0,0); // make pair, first is diameter second is height
@@ -95,7 +95,58 @@ pair<int,int> diameter(Node* root){
 
     pair<int,int> ans = make_pair(d,h);
     return ans;
-}                               
+}    
+*/
+                           
+// ========================= is tree balanced =========================
+
+                        // ========== my approch ============
+                    
+/*
+bool isBalanced(Node* root){
+    if (root == NULL){
+        return true;
+    }
+
+    int l1 = height(root->left);
+    int l2 = height(root->right);
+
+    if(abs(l1 - l2) > 1){
+        return false;
+    }
+
+    isBalanced(root->left);
+    isBalanced(root->right);
+}
+*/
+                        // ========== approch 1============
+
+/*
+bool isBalanced(Node* root){
+    if(root == NULL){
+        return true;
+    }
+
+    bool left = isBalanced(root->left);
+    bool right = isBalanced(root->right);
+    bool diff = abs(height(root->left) - height(root->right)) <= 1;
+
+    if(left && right && diff){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+*/
+
+                        // ========== approch 2 ============
+
+
+
+
+
+
 
 
 
@@ -114,7 +165,10 @@ int main(){
     // cout << "diameter of tree is " << diameter(root); // approch1
 
     // diameter of tree
-    cout << diameter(root).first << endl;
+    // cout << diameter(root).first << endl;
+
+    // is tree balanced
+    cout << isBalanced(root) << endl;
 
 
 
