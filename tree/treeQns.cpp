@@ -198,6 +198,41 @@ bool isIdentical(Node* r1, Node* r2){
 }
 */
 
+// ============================= Sum tree ============================
+pair<bool,int> sumTree(Node* root){
+    // base case
+    if(root == NULL){
+        pair<bool,int> p = make_pair(true,0);
+        return p;
+    }
+    // handle leaf node
+    if(root->left == NULL && root->right == NULL){
+        pair<bool,int> p = make_pair(true,root->data);
+        return p;
+    }
+
+    // call for left and right part
+    pair<bool,int> leftSubTree = sumTree(root->left);
+    pair<bool,int> rightSubTree = sumTree(root->right);
+
+    bool leftAns = leftSubTree.first;
+    bool rightAns = rightSubTree.first;
+    bool condition = root->data == leftSubTree.second + rightSubTree.second;
+
+    // make new pair for return to above nodes.
+    pair<bool,int>ans;
+    
+    if(leftAns && rightAns && condition){
+        ans.first = true;
+        ans.second = root->data + leftSubTree.second + rightSubTree.second;
+    }
+    else{
+        ans.first = false;
+    }
+    
+    return ans;
+}
+
 
 
 int main(){
@@ -220,7 +255,8 @@ int main(){
     // is tree balanced
     // cout << isBalanced(root).first << endl;
 
-
+    // sum tree
+    cout << sumTree(root).first;
 
 
 
