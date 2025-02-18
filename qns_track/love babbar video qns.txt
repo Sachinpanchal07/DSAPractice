@@ -70,7 +70,14 @@ b) implement queue using stack.
 10) sum of max element and min element in k size window and  store that sum in array return array (samjh nahi aya) (dry run this must)
 
 Tree------------------>
+
 1) No. of leaf nodes in tree
 2) height of tree
-^ 3) diameter of tree(two approaches)(samjh nahi aya)
-4)
+3) diameter of tree(two approaches). **
+4) is tree balanced
+5) is both tree identical
+6) sum tree
+	{views qns are important, most of asked in interviews}
+7) 
+
+
