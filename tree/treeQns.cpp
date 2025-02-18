@@ -119,7 +119,7 @@ bool isBalanced(Node* root){
     isBalanced(root->right);
 }
 */
-                        // ========== approch 1============
+                        // ========== approch 1 ============
 
 /*
 bool isBalanced(Node* root){
@@ -142,6 +142,7 @@ bool isBalanced(Node* root){
 
                         // ========== approch 2 ============
 
+/*
 pair<bool,int> isBalanced(Node* root){
     if(root == NULL){
         pair<bool,int> p = make_pair(true,0);
@@ -167,6 +168,36 @@ pair<bool,int> isBalanced(Node* root){
     ans.second = max(left.second, right.second) + 1;
     return ans;
 }
+*/
+
+// ============================ Is both tree are identical ==========================
+
+/*
+bool isIdentical(Node* r1, Node* r2){
+    // base case
+    if(r1 == NULL && r2 == NULL){
+        return true;
+    }
+    if(r1 == NULL && r2 != NULL){
+        return false;
+    }
+    if(r1 != NULL && r2 == NULL){
+        return false;
+    }
+    // do all operation simultaniously on both trees
+    bool left = isIdentical(r1->left, r2->left);
+    bool right = isIdentical(r1->right, r2->right);
+    bool isEqual = r1->data == r2->data;
+
+    if(left && right && isEqual){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+*/
+
 
 
 int main(){
@@ -187,7 +218,9 @@ int main(){
     // cout << diameter(root).first << endl;
 
     // is tree balanced
-    cout << isBalanced(root).first << endl;
+    // cout << isBalanced(root).first << endl;
+
+
 
 
 
