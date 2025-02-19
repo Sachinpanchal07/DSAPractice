@@ -238,6 +238,7 @@ pair<bool,int> sumTree(Node* root){
 */
 
 // ================================ zig-zag or spiral traversal =================================
+/*
 vector<int>zigZag(Node* root){
     vector<int>result;
     queue<Node*>q;
@@ -275,6 +276,73 @@ vector<int>zigZag(Node* root){
     }
     return result;
 }
+*/
+
+// ============================== boundry nodes printing ==============================
+
+// call for left sub tree
+void leftPart(Node* root, vector<int> &ans){
+    if((root == NULL) || (root->left == NULL && root->right == NULL)){
+        return;
+    }
+    ans.push_back(root->data);
+
+    if(root->left){
+        leftPart(root->left, ans);
+    }
+    else{
+        leftPart(root->right, ans);
+    }
+}
+
+// call for leaf nodes
+void leafNodes(Node* root, vector<int> &ans){
+    if(root == NULL){
+        return;
+    }
+    if(root->left == NULL && root->right == NULL){
+        ans.push_back(root->data);
+    }
+    
+    leafNodes(root->left, ans);
+    leafNodes(root->right, ans);
+}
+
+// call for right sub tree
+void rightPart(Node* root, vector<int> &ans){
+    if((root == NULL) || (root->left == NULL && root->right == NULL)){
+        return;
+    }
+    if(root->right){
+        rightPart(root->right, ans);
+    }
+    else{
+        rightPart(root->left, ans);
+    }
+    ans.push_back(root->data);
+}
+
+
+vector<int> boundry(Node* root){
+    vector<int> ans;
+
+    if(root == NULL){
+        return ans;
+    }
+    // add root node in ans
+    ans.push_back(root->data);
+
+    // call for left sub tree
+    leftPart(root->left, ans);
+
+    // call for leaf nodes
+    leafNodes(root->left, ans);
+    leafNodes(root->right, ans);
+
+    // call for right sub tree
+    rightPart(root->right, ans);
+    return ans;
+}
 
 
 
@@ -302,12 +370,16 @@ int main(){
     // cout << sumTree(root).first;
 
     // zig-zag traversal
-    vector<int> a = zigZag(root);
-    for(int i=0; i<a.size(); i++){
-        cout << a[i] << " ";
+    // vector<int> a = zigZag(root);
+    // for(int i=0; i<a.size(); i++){
+    //     cout << a[i] << " ";
+    // }
+
+    // print boundry
+    vector<int> result = boundry(root);
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
     }
-
-
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
 }

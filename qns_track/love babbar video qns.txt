@@ -78,6 +78,5 @@ Tree------------------>
 5) is both tree identical
 6) sum tree
 	{views qns are important, most of asked in interviews}
-7) 
-
-
+7) zig-zag traversal 
+8) print boundry nodes of tree
