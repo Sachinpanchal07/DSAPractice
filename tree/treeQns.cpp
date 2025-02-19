@@ -280,6 +280,7 @@ vector<int>zigZag(Node* root){
 
 // ============================== boundry nodes printing ==============================
 
+/*
 // call for left sub tree
 void leftPart(Node* root, vector<int> &ans){
     if((root == NULL) || (root->left == NULL && root->right == NULL)){
@@ -343,6 +344,8 @@ vector<int> boundry(Node* root){
     rightPart(root->right, ans);
     return ans;
 }
+*/
+
 
 
 
@@ -376,10 +379,12 @@ int main(){
     // }
 
     // print boundry
-    vector<int> result = boundry(root);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
-    }
+    // vector<int> result = boundry(root);
+    // for(int i=0; i<result.size(); i++){
+    //     cout << result[i] << " ";
+    // }
+
+    
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
 }
