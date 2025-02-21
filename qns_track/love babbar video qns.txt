@@ -71,6 +71,8 @@ b) implement queue using stack.
 
 Tree------------------>
 
+a) diagonal traversal in tree
+
 1) No. of leaf nodes in tree
 2) height of tree
 3) diameter of tree(two approaches). **
@@ -80,7 +82,9 @@ Tree------------------>
 	{views qns are important, most of asked in interviews}
 7) zig-zag traversal 
 8) print boundry nodes of tree
-^9) vertical traversal in tree
+^9) vertical traversal in tree.  edit-> (done)
 10) top view of tree
 11) bottom view of tree
 12) left view of tree
+13) right view of tree
+

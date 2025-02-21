@@ -472,6 +472,43 @@ vector<int> leftView(Node* root){
 }
 */
 
+// ==================================== vertical order traveresal ===================================
+
+vector<int> verticalTraversal(Node* root){
+    vector<int> ans;
+    if(root == NULL){
+        return ans;
+    }
+
+    map<int,vector<int> > topNode; // vector to store nested nodes.
+    queue<pair<Node*,int>> q; // store node,HD
+    q.push(make_pair(root,0)); // root node HD have 0;
+
+    while(!q.empty()){
+        pair<Node*,int> temp = q.front();
+        Node* frontNode = temp.first;
+        int hd = temp.second;
+        q.pop();
+
+        topNode[hd].push_back(frontNode->data);
+        // call for left and right part
+        if(frontNode->left){
+            q.push(make_pair(frontNode->left,hd-1));
+        }
+        if(frontNode->right){
+            q.push(make_pair(frontNode->right,hd+1));
+        }
+    }
+    // add ans in vector
+    for(auto i: topNode){
+        for(int j=0; j<i.second.size(); j++){
+            ans.push_back(i.second[j]);
+        }
+    }
+    return ans;
+}
+
+
 
 int main(){
     Node* root = buildTree();
@@ -532,6 +569,11 @@ int main(){
     //     cout << result[i] << " ";
     // }
 
+    // vertical traversal
+    vector<int>result = verticalTraversal(root);
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
+    }
     
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
