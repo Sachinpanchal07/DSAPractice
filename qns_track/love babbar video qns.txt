@@ -81,3 +81,5 @@ Tree------------------>
 7) zig-zag traversal 
 8) print boundry nodes of tree
 ^9) vertical traversal in tree
+10) top view of tree
+11) bottom view of tree
