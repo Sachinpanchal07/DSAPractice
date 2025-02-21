@@ -473,14 +473,13 @@ vector<int> leftView(Node* root){
 */
 
 // ==================================== vertical order traveresal ===================================
-
+/*
 vector<int> verticalTraversal(Node* root){
     vector<int> ans;
     if(root == NULL){
         return ans;
     }
-
-    map<int,vector<int> > topNode; // vector to store nested nodes.
+        map<int,vector<int> > topNode; // vector to store nested nodes.
     queue<pair<Node*,int>> q; // store node,HD
     q.push(make_pair(root,0)); // root node HD have 0;
 
@@ -507,8 +506,41 @@ vector<int> verticalTraversal(Node* root){
     }
     return ans;
 }
+*/
 
+// ============================== sum of nodes of longest path ============================
 
+/*
+void solve(Node* root, int len, int &maxLen, int sum, int &maxSum){
+    // means recusion reached to leaf node, check conditions, update variables accordingly
+    // base case
+    if(root == NULL){ 
+        if(len > maxLen){
+            maxLen = len;
+            maxSum = sum;
+        }
+        else if(len == maxLen){
+            maxSum = sum;
+        }
+        return;
+    }
+    // update variables at each level
+    sum = sum + root->data;
+
+    solve(root->left, len+1, maxLen, sum, maxSum);
+    solve(root->right, len+1, maxLen, sum, maxSum);
+}
+
+int maxSum(Node* root){
+    int len = 0;
+    int maxLen = 0;
+    int sum = 0; 
+    int maxSum = 0;
+
+    solve(root, len, maxLen, sum, maxSum);
+    return maxSum;
+}
+*/
 
 int main(){
     Node* root = buildTree();
@@ -570,11 +602,14 @@ int main(){
     // }
 
     // vertical traversal
-    vector<int>result = verticalTraversal(root);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
-    }
+    // vector<int>result = verticalTraversal(root);
+    // for(int i=0; i<result.size(); i++){
+    //     cout << result[i] << " ";
+    // }
     
+    // maxSum
+    // int sum = maxSum(root);
+    // cout << sum ;
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
 }
