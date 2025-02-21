@@ -83,3 +83,4 @@ Tree------------------>
 ^9) vertical traversal in tree
 10) top view of tree
 11) bottom view of tree
+12) left view of tree
