@@ -2,6 +2,7 @@
 #include<utility>
 #include<vector>
 #include<queue>
+#include<map>
 using namespace std;
 
 class Node {
@@ -346,6 +347,43 @@ vector<int> boundry(Node* root){
 }
 */
 
+// ================================ Top view of tree ==============================
+
+vector<int> topView(Node* root){
+    vector<int> ans;
+    if(root == NULL){
+        return ans;
+    }
+
+    map<int,int> topNode; // store HD,node data
+    queue<pair<Node*,int>> q; // store node,HD
+    q.push(make_pair(root,0)); // root node HD have 0;
+
+    while(!q.empty()){
+        pair<Node*,int> temp = q.front();
+        Node* frontNode = temp.first;
+        int hd = temp.second;
+        q.pop();
+
+        // check if node is present in map or not with hd, if not add that in map
+        if(topNode.find(hd) == topNode.end()){
+            topNode[hd] = frontNode->data;
+        }
+
+        // call for left and right part
+        if(frontNode->left){
+            q.push(make_pair(frontNode->left,hd-1));
+        }
+        if(frontNode->right){
+            q.push(make_pair(frontNode->right,hd+1));
+        }
+    }
+    // add ans in vector
+    for(auto i: topNode){
+        ans.push_back(i.second);
+    }
+    return ans;
+}
 
 
 
@@ -383,6 +421,12 @@ int main(){
     // for(int i=0; i<result.size(); i++){
     //     cout << result[i] << " ";
     // }
+
+    // top view of tree
+    vector<int> result = topView(root);
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
+    }
 
     
 
