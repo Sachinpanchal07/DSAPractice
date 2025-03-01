@@ -79,7 +79,7 @@ a) diagonal traversal in tree
 4) is tree balanced
 5) is both tree identical
 6) sum tree
-	{views qns are important, most of asked in interviews}
+{views qns are important, most of asked in interviews}
 7) zig-zag traversal 
 8) print boundry nodes of tree
 ^9) vertical traversal in tree.  edit-> (done)
@@ -88,4 +88,6 @@ a) diagonal traversal in tree
 12) left view of tree
 13) right view of tree
 14) longest common bloodline of tree
+15) LCA(longest common ancestor)
+
 

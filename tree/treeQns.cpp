@@ -347,6 +347,33 @@ vector<int> boundry(Node* root){
 }
 */
 
+vector<int> leftView(Node* root){
+    vector<int> ans;
+    if(root == NULL){
+        return ans;
+    }
+    queue<pair<Node*,int> > q;
+    map<int,int> m;
+    q.push(make_pair(root, 0));
+    while(!q.empty()){
+        pair<Node*,int> p = q.front();
+        Node* frontNode = p.first;
+        int hd = p.second;
+        q.pop();
+        m[hd] = frontNode->data;
+        if(root->left){
+            q.push(make_pair(root->left,hd++));
+        }
+        else{
+            q.push(make_pair(root->right,hd++));
+        }
+    }
+    for(auto i: m){
+        ans.push_back(i.second);
+    }
+    return ans;
+}
+
 // ================================ Top view of tree ==============================
 
 /*
@@ -447,7 +474,7 @@ vector<int> leftView(Node* root){
 }
 */
 
-// ==================================== left view of tree ===============================
+// ==================================== right view of tree ===============================
 
 /*
 // solve function
@@ -544,6 +571,7 @@ int maxSum(Node* root){
 
 // =============================== LCA(longest common ancestor) ================================
 
+/*
 Node* lca(Node* root, int n1, int n2){
     // base case
     if( root == NULL){
@@ -572,7 +600,36 @@ Node* lca(Node* root, int n1, int n2){
     else{
         return NULL;
     }
+}
+*/
 
+// ================================ K sum paths ==============================
+
+void solve(Node* root, vector<int>path, int k, int &count){
+    if(root == NULL){
+        return;
+    }
+    
+    // add node in vector array on which u are currently
+    path.push_back(root->data);
+    
+    solve(root->left, path, k, count);
+    solve(root->right, path, k, count);
+
+    int sum = 0;
+    for(int i=path.size()-1; i>=0; i--){
+        sum += path[i];
+        if(sum == k){
+            count++;
+        }
+    }
+}
+
+int kSumPath(Node* root, int k){
+    vector<int> path;
+    int count = 0;
+    solve(root, path, k, count);
+    return count;
 }
 
 int main(){
@@ -645,8 +702,12 @@ int main(){
     // cout << sum ;
 
     // lca
-    Node* ans = lca(root, 7, 6);
-    cout << ans->data;
+    // Node* ans = lca(root, 7, 6);
+    // cout << ans->data;
+
+    // K sum paths
+    int ans = kSumPath(root, 8);
+    cout << "no. of path is " <<  ans;
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
 }
