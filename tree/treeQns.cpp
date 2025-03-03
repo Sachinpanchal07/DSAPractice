@@ -533,11 +533,11 @@ vector<int> verticalTraversal(Node* root){
     }
     return ans;
 }
-
-
 */
 
-
+// =============================== sum of nodes of longest path ============================
+// my approach
+/*
 pair<int,int> maxSum(Node* root){
     pair<int,int> ans = make_pair(0,0); // height,data
     if(root == NULL){
@@ -555,6 +555,7 @@ pair<int,int> maxSum(Node* root){
     }
     return ans;
 }
+*/
 
 
 // =============================== sum of nodes of longest path ============================
@@ -591,7 +592,8 @@ int maxSum(Node* root){
 }
 */
 
-// =============================== LCA(longest common ancestor) ================================
+// =============================== LCA(lowest common ancestor) ================================
+
 
 /*
 Node* lca(Node* root, int n1, int n2){
@@ -627,24 +629,25 @@ Node* lca(Node* root, int n1, int n2){
 
 // ================================ K sum paths ==============================
 
-void solve(Node* root, vector<int>path, int k, int &count){
+/*
+void solve(Node* root, vector<int>&a, int k, int &count){
     if(root == NULL){
         return;
     }
-    
-    // add node in vector array on which u are currently
-    path.push_back(root->data);
-    
-    solve(root->left, path, k, count);
-    solve(root->right, path, k, count);
+    a.push_back(root->data);
 
     int sum = 0;
-    for(int i=path.size()-1; i>=0; i--){
-        sum += path[i];
+    for(int i=a.size()-1; i >= 0; i--){
+        sum += a[i];
         if(sum == k){
             count++;
         }
+        
     }
+    solve(root->left, a, k, count);
+    solve(root->right, a, k, count);
+
+    a.pop_back();
 }
 
 int kSumPath(Node* root, int k){
@@ -653,6 +656,7 @@ int kSumPath(Node* root, int k){
     solve(root, path, k, count);
     return count;
 }
+*/
 
 int main(){
     Node* root = buildTree();
@@ -723,9 +727,9 @@ int main(){
     // int sum = maxSum(root);
     // cout << sum ;
 
-
-    pair<int,int> ans = maxSum(root);
-    cout << ans.second;
+    // my approach
+    // pair<int,int> ans = maxSum(root);
+    // cout << ans.second;
 
     // lca
     // Node* ans = lca(root, 7, 6);
