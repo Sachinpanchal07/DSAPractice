@@ -89,5 +89,6 @@ a) diagonal traversal in tree
 13) right view of tree
 14) longest common bloodline of tree
 15) LCA(longest common ancestor)
+16) K sum path.
 
 

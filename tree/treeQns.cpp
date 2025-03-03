@@ -5,6 +5,7 @@
 #include<map>
 using namespace std;
 
+
 class Node {
     public:
         int data;
@@ -657,6 +658,49 @@ int kSumPath(Node* root, int k){
     return count;
 }
 */
+
+// =================================== kth encestor of node ==================================
+
+Node* solve(Node* root, int &k, int node){
+    if(root == NULL){
+        return NULL;
+    }
+
+    if(root->data == node){
+        return root; // if node found return node
+    }
+
+    Node* left = solve(root->left, k, node);
+    Node* right = solve(root->right, k, node);
+
+    if(left != NULL && right == NULL){
+        k--;
+        if(k<=0){
+            k = INT_MAX;   // b/z to lock ans, and further ans can not be change
+            return root;
+        }
+        return left;
+    }
+    if(left == NULL && right != NULL){
+        k--;
+        if(k<=0){
+            k = INT_MAX;
+            return root;
+        }
+        return right;
+    }
+    return NULL;
+}
+
+int kthEncestor(Node* root, int k, int node){
+    Node* ans = solve(root, k, node);
+    if(ans == NULL && ans == root){
+        return -1;
+    }
+    else{
+        return ans->data;
+    }
+}
 
 int main(){
     Node* root = buildTree();
