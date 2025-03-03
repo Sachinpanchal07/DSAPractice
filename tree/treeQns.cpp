@@ -537,6 +537,26 @@ vector<int> verticalTraversal(Node* root){
 
 */
 
+
+pair<int,int> maxSum(Node* root){
+    pair<int,int> ans = make_pair(0,0); // height,data
+    if(root == NULL){
+        return ans;
+    }
+
+    pair<int,int>left = maxSum(root->left);
+    pair<int,int> right = maxSum(root->right);
+
+    if(left.first > right.first || (left.first == right.first && left.second > right.second)){
+        ans = make_pair(left.first+1, left.second + root->data);
+    }
+    else{
+        ans = make_pair(right.first+1, right.second + root->data);
+    }
+    return ans;
+}
+
+
 // =============================== sum of nodes of longest path ============================
 
 /*
@@ -703,13 +723,17 @@ int main(){
     // int sum = maxSum(root);
     // cout << sum ;
 
+
+    pair<int,int> ans = maxSum(root);
+    cout << ans.second;
+
     // lca
     // Node* ans = lca(root, 7, 6);
     // cout << ans->data;
 
     // K sum paths
-    int ans = kSumPath(root, 8);
-    cout << "no. of path is " <<  ans;
+    // int ans = kSumPath(root, 8);
+    // cout << "no. of path is " <<  ans;
 
     // 1 3 4 -1 -1 5 -1 -1 2 6 -1 -1 7 -1 -1 
 }
