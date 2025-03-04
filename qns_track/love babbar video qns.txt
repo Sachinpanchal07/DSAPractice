@@ -90,5 +90,7 @@ a) diagonal traversal in tree
 14) longest common bloodline of tree
 15) LCA(longest common ancestor)
 16) K sum path.
+17) kth ancestor of node.
+^18) max sum of non-adjacent nodes.
 
 

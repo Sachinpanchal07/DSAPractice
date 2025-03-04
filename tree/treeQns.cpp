@@ -3,6 +3,7 @@
 #include<vector>
 #include<queue>
 #include<map>
+#include<climits>
 using namespace std;
 
 
@@ -661,6 +662,7 @@ int kSumPath(Node* root, int k){
 
 // =================================== kth encestor of node ==================================
 
+/*
 Node* solve(Node* root, int &k, int node){
     if(root == NULL){
         return NULL;
@@ -701,6 +703,9 @@ int kthEncestor(Node* root, int k, int node){
         return ans->data;
     }
 }
+*/
+
+
 
 int main(){
     Node* root = buildTree();
