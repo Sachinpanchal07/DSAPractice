@@ -784,7 +784,7 @@ int main(){
     // Node* ans = lca(root, 7, 6);
     // cout << ans->data;
 
-    // K sum paths
+    // K  sum paths
     // int ans = kSumPath(root, 8);
     // cout << "no. of path is " <<  ans;
 
