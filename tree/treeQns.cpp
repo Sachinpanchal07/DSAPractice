@@ -705,6 +705,36 @@ int kthEncestor(Node* root, int k, int node){
 }
 */
 
+// ======================== build tree from inorder and preorder =========================
+
+Node* solve(int pre[], int in[], int &index, int inStart, int inEnd, map<int,int> m, int n){
+    if(inStart > inEnd){
+        return NULL;
+    }
+    if(index >= n){
+        return NULL;
+    }
+
+    int element = pre[index++];
+    Node* root = new Node(element);
+    int position = m[element];
+    root->left = solve(pre, in, index, inStart, position-1, m, n);
+    root->right = solve(pre, in, index, position+1, inEnd, m, n);
+    return root;
+}
+
+Node* buildTreeFromInPre(int pre[], int in[], int n){
+    map<int,int> m;
+    for(int i=0; i<n; i++){
+        m[in[i]] = i;
+    }
+
+    int preIndex = 0;
+    Node* root = solve(pre, in, preIndex, 0, n-1, m, n);
+    return root;
+
+}
+
 
 
 int main(){
